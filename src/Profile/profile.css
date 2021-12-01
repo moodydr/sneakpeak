@@ -1,0 +1,210 @@
+.profilecontainer {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+
+.mycontainer {
+    margin: auto;
+
+
+}
+
+main {
+    padding: 15px;
+}
+.sidebar {
+    height: 50%;
+    color: white;
+}
+
+.profile-card img {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.profile-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    background-color: white;
+}
+
+.h3-font {
+    font-family: "Questrial", sans-serif;
+    color: #302f2d;
+    text-align: left;
+    font-size: 50px;
+    font-weight: 50px;
+
+}
+
+.h5-font {
+    font-family: "Questrial", sans-serif;
+    color: #302f2d;
+    text-align: left;
+    font-size: 22px;
+    font-weight: 50px;
+}
+
+.change-font {
+    font-family: "Questrial", sans-serif;
+}
+
+.cc-1 {
+    color: #63615d;
+}
+
+.cc-2 {
+    color: #302f2d;
+}
+
+.change-size-1 {
+    font-size: 18px;
+}
+
+.change-size-2 {
+    font-size: 22px;
+}
+
+
+#mb1 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5p 10px;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    background-color: #bb1a34;
+    width:33%;
+}
+
+#mb2 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    background-color: #a359a0;
+    width:60%;
+}
+
+#mb3 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    background-color: #a359a0;
+    width:31%;
+}
+
+#mb4 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5px 12px;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    background-color: #bb1a34;
+    width:37%;
+}
+
+#mb5 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    background-color: #a9aaac;
+    width:26%;
+}
+
+#multi-button:visited {
+    background: white;
+}
+
+.bc-1 {
+    background-color: #bb1a34;
+}
+
+.bc-2 {
+    background-color: #a359a0;
+}
+
+.bc-3 {
+    background-color:#ebecf0;
+}
+
+#mb7 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    width:30;
+    background-color: #a359a0;
+}
+
+#mb8 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    width:35%;
+    background-color: #a359a0;
+}
+
+#mb9 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    width:35%;
+    background-color: #a9aaac;;
+}
+
+#mb1-1 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    width:45%;
+    background-color: #a359a0;
+}
+
+#mb1-2 {
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'Questrial', sans-serif;
+    width:45%;
+    background-color: #bb1a34;
+}
