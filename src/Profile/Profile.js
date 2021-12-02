@@ -10,7 +10,6 @@ const Profile = function (props) {
     //if (props.user && props.user._id) {
         return (
             <div className="pageContainer">
-                    <h1>Hello World</h1>
                     <br />
                     <br />
                     <br />
