@@ -33,6 +33,9 @@ const NavigationSidebar = ( {
                             <li className="nav-item">
                                 <Link className={`nav-link  ${active === `profile` ? `active` : ``}`} to="/sneakpeak/profile">Profile</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className={`nav-link  ${active === `search` ? `active` : ``}`} to="/sneakpeak/search">Search</Link>
+                            </li>
                             {/*<li className="nav-item dropdown">*/}
                             {/*    <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"*/}
                             {/*       aria-haspopup="true" aria-expanded="false">Dropdown</a>*/}
