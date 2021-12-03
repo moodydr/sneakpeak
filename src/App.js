@@ -23,6 +23,7 @@ function App() {
               <Route exact path="/sneakpeak/home" element={<HomeScreen/>}/>
               <Route exact path="/sneakpeak/watchlists" element={<WatchListScreen/>}/>
               <Route path="/sneakpeak/search" element={<SearchScreen/>}/>
+              <Route path="/sneakpeak/search/:searchTerm" element={<SearchScreen/>}/>
               <Route path="/sneakpeak/search/details/:id" element={<DetailsScreen/>}/>
           </Routes>
 
