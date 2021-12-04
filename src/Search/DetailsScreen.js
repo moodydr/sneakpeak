@@ -96,7 +96,7 @@ const DetailsScreen = () => {
 
                         </div>
                     </div>
-                    <div className="col-md-4 col-6 ps-1">
+                    <div className="col-md-4 co-6 ps-1">
                         <div className="card-body">
                             <div className="d-flex justify-content-center pb-2">
                                 <img src="https://bootdey.com/img/Content/avatar/avatar5.png"
