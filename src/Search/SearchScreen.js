@@ -27,9 +27,7 @@ const SearchScreen = () =>{
                 <button onClick={findMovies} type="button" className="btn btn-primary">Search</button>
             </div>
             <div className="row mt-4">
-                <div className="card-deck">
 
-                </div>
                 {
                     movies.map(movie =>
                         // <li key={movie.imdbID}>

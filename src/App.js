@@ -2,6 +2,7 @@ import React from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import '../src/vendors/bootstrap/css/bootstrap.min.css';
 import '../src/vendors/bootstrap/bootstrap.min-6.css';
+import './vendors/fontawesome/css/all.min.css';
 import SearchScreen from "./Search/SearchScreen";
 import './App.css';
 import ProfileScreen from "./Profile";
