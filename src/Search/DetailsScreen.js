@@ -54,6 +54,7 @@ const DetailsScreen = () => {
                                 {s.Source}: {s.Value}
                             </h2>)
                         }
+                        <h2 className="text-light fs-5">SneakPeak: 100%</h2>
                         </div>
 
                     </div>
