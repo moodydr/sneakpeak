@@ -86,8 +86,8 @@ const DetailsScreen = () => {
                                 <p>" Sed ut perspiciatis unde omnis
                                     iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
                                     eaque ipsa quae. "</p>
-                                <h5 className=" mgb-5 fg-text-d fs-130" contentEditable="false">Martha Stewart</h5>
-                                <small className=" case-u lts-sm fs-80 fg-text-l" contentEditable="false">Business
+                                <h5 className=" mgb-5 fg-text-d fs-130" >Martha Stewart</h5>
+                                <small className=" case-u lts-sm fs-80 fg-text-l" >Business
                                     Woman - New York</small>
 
                             </div>
@@ -108,8 +108,8 @@ const DetailsScreen = () => {
                                 <p>" Sed ut perspiciatis unde omnis
                                     iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
                                     eaque ipsa quae. "</p>
-                                <h5 className=" mgb-5 fg-text-d fs-130" contentEditable="false">Martha Stewart</h5>
-                                <small className=" case-u lts-sm fs-80 fg-text-l" contentEditable="false">Business
+                                <h5 className=" mgb-5 fg-text-d fs-130" >Martha Stewart</h5>
+                                <small className=" case-u lts-sm fs-80 fg-text-l" >Business
                                     Woman - New York</small>
 
                             </div>
@@ -130,8 +130,8 @@ const DetailsScreen = () => {
                                 <p>" Sed ut perspiciatis unde omnis
                                     iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
                                     eaque ipsa quae. "</p>
-                                <h5 className=" mgb-5 fg-text-d fs-130" contentEditable="false">Martha Stewart</h5>
-                                <small className=" case-u lts-sm fs-80 fg-text-l" contentEditable="false">Business
+                                <h5 className=" mgb-5 fg-text-d fs-130" >Martha Stewart</h5>
+                                <small className=" case-u lts-sm fs-80 fg-text-l" >Business
                                     Woman - New York</small>
 
                             </div>

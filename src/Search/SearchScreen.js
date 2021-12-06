@@ -17,20 +17,30 @@ const SearchScreen = () =>{
     }
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-            console.log(e.key);
+            setSearchTerm(e.target.value);
         }
     };
+
+    const configSaveHandler = (e) => {
+        setSearchTerm(e.target.previousElementSibling.value);
+    }
+
     //use useEffect for functions when you first load
-    useEffect(findMovies, []);
+    useEffect(findMovies, [searchTerm, navigate]);
     return(
         <div>
             <div className="container">
             <h1>Search Screen</h1>
             <div class="input-group">
-                <input type="text"  className="" placeholder="Find a movie..." onKeyPress={(e) =>
-                handleKeyPress(e.key)} onChange={(e) =>
-                    setSearchTerm(e.target.value)} />
-                <button onClick={findMovies} type="button" className="btn btn-primary">Search</button>
+                <input type="text"  className="" placeholder="Find a movie..."
+                //        onKeyPress={(e) =>
+                // handleKeyPress(e.key)} onChange={(e) =>
+                //     setSearchTerm(e.target.value)}
+                        onKeyPress={(e) =>
+                    handleKeyPress(e)}
+                />
+                <button onClick={(e) =>
+                configSaveHandler(e)} type="button" className="btn btn-primary">Search</button>
             </div>
             <div className="row mt-4">
 
@@ -63,8 +73,6 @@ const SearchScreen = () =>{
 
 
                     </div>
-
-
 
 
                     ))
