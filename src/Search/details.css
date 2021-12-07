@@ -1,0 +1,14 @@
+.img-round, .img-rel-round {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
+}
+
+.align-center {
+    text-align: center;
+}
+
+a.no-underline {
+    text-decoration: none;
+}
