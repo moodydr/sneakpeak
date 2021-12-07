@@ -29,9 +29,8 @@ const Profile = function (props) {
 
     // we show the page if the user is logged in and redirect to the login page if not. this component uses conditional rendering and array mapping to generate the cards.
     //if (props.user && props.user._id) {
-        return (
+        return (<><Navigation active={"explore"} />
             <div className="container">
-                    <Navigation active={"explore"} />
                     <div className="row gutters"><h1 className="fs-1 mb-1">Profile</h1></div>
                     <div className="row gutters mt-2">
                             <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -155,7 +154,7 @@ const Profile = function (props) {
                                     </div>
                             </div>
                     </div>
-            </div>
+            </div></>
         );
 
 };
