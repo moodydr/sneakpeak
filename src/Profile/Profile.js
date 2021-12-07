@@ -23,7 +23,7 @@ const Profile = function (props) {
                 fetch(`${API_URL}/logout`, {
                         method: 'POST',
                         credentials: 'include'
-                }).then(res => navigate('/'));
+                }).then(res => navigate('/sneakpeak'));
         }
         useEffect(getProfile, [navigate]);
 
@@ -45,8 +45,8 @@ const Profile = function (props) {
                                                                                 src="https://bootdey.com/img/Content/avatar/avatar1.png"
                                                                                 alt="Maxwell Admin"/>
                                                                     </div>
-                                                                    <p className="user-name text-white mb-0 fw-bold fs-4">Mac Test</p>
-                                                                    <p className="user-email fs-6 mt-0 fw-bold">fake2email@gmail.com</p>
+                                                                    <p className="user-name text-white mb-0 fw-bold fs-4">{user.username}</p>
+                                                                    <p className="user-email fs-6 mt-0 fw-bold">{user.email}</p>
                                                                     </div>
                                                     </div>
 
