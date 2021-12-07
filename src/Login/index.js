@@ -6,7 +6,6 @@ import Register from "./Register";
 const LoginScreen = () => {
     return (<>
             <Navigation active={"explore"} />
-            <h1>Login Screen</h1>
             <Login/>
             <Register/>
         </>

@@ -1,7 +1,25 @@
-import React from "react";
+import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+import {API_URL} from "../consts";
+import Navigation from "../Navigation";
 
 const Login = () => {
+    const [user, setUser] = useState({});
+    const navigate = useNavigate();
+    const login = () => {
+        fetch(`${API_URL}/login`, {
+            method: 'POST',
+            body: JSON.stringify(user),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(status => {
+            navigate('/sneakpeak/profile')
+        });
+    }
     return (<>
+            <Navigation active={'home'}/>
             <div className="container py-5 h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -14,12 +32,17 @@ const Login = () => {
                                     <p className="text-white-50 mb-5">Please enter your login and password!</p>
 
                                     <div className="form-outline form-white mb-4">
-                                        <input type="email" id="typeEmailX" className="form-control form-control-lg"/>
-                                        <label className="form-label" htmlFor="typeEmailX">Email</label>
+                                        <input type="email" id="typeEmailX"
+                                               value={user.username}
+                                               onChange={(e) => setUser({...user, username: e.target.value})}
+                                               className="form-control form-control-lg"/>
+                                        <label className="form-label" htmlFor="typeEmailX">Username</label>
                                     </div>
 
                                     <div className="form-outline form-white mb-4">
                                         <input type="password" id="typePasswordX"
+                                               value={user.password}
+                                               onChange={(e) => setUser({...user, password: e.target.value})}
                                                className="form-control form-control-lg"/>
                                         <label className="form-label" htmlFor="typePasswordX">Password</label>
                                     </div>
@@ -27,7 +50,12 @@ const Login = () => {
                                     <p className="small mb-5 pb-lg-2"><a className="text-white-50" href="#!">Forgot
                                         password?</a></p>
 
-                                    <button className="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                    <button
+                                        className="btn btn-outline-light btn-lg px-5"
+                                        type="submit"
+                                        onClick={login}>>
+                                        Login
+                                    </button>
 
                                     {/*<div className="d-flex justify-content-center text-center mt-4 pt-1">*/}
                                     {/*    <a href="#!" className="text-white"><i className="fab fa-facebook-f fa-lg"></i></a>*/}

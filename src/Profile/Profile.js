@@ -1,16 +1,37 @@
 import './profile.css';
-import React from "react";
-// import { useEffect, useState } from "react";
-// import { Redirect } from "react-router";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router";
+import {API_URL} from "../consts";
+import Navigation from "../Navigation";
+
 
 
 
 const Profile = function (props) {
+        const [user, setUser] = useState({});
+        const navigate = useNavigate();
+        const getProfile = () => {
+                fetch(`${API_URL}/profile`, {
+                        method: 'POST',
+                        credentials: 'include'
+                }).then(res => res.json())
+                    .then(user => {
+                            setUser(user);
+                    }).catch(e => navigate('/login'));
+        }
+        const logout = () => {
+                fetch(`${API_URL}/logout`, {
+                        method: 'POST',
+                        credentials: 'include'
+                }).then(res => navigate('/'));
+        }
+        useEffect(getProfile, [navigate]);
 
     // we show the page if the user is logged in and redirect to the login page if not. this component uses conditional rendering and array mapping to generate the cards.
     //if (props.user && props.user._id) {
         return (
             <div className="container">
+                    <Navigation active={"explore"} />
                     <div className="row gutters"><h1 className="fs-1 mb-1">Profile</h1></div>
                     <div className="row gutters mt-2">
                             <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -121,6 +142,11 @@ const Profile = function (props) {
                                                                             <button type="button" id="submit"
                                                                                     name="submit"
                                                                                     className="ms-3 btn btn-primary">Update
+                                                                            </button>
+                                                                            <button type="button"
+                                                                                onClick={logout}
+                                                                                className="ms-3 btn btn-danger">
+                                                                                    Logout
                                                                             </button>
                                                                     </div>
                                                             </div>
