@@ -25,7 +25,6 @@ function App() {
               <Route path="/sneakpeak/search" element={<SearchScreen/>}/>
               <Route path="/sneakpeak/search/details/:id" element={<DetailsScreen/>}/>
           </Routes>
-
        </BrowserRouter>
   );
 }
