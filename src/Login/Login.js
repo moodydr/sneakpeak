@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {API_URL} from "../consts";
 import Navigation from "../Navigation";
@@ -67,9 +67,9 @@ const Login = () => {
                                 </div>
 
                                 <div>
-                                    <p className="mb-0">Don't have an account? <a href="#!"
+                                    <p className="mb-0">Don't have an account? <Link to="/sneakpeak/register"
                                                                                   className="text-white-50 fw-bold">Sign
-                                        Up</a></p>
+                                        Up</Link></p>
                                 </div>
 
                             </div>
