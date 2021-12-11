@@ -11,6 +11,20 @@ const DetailsScreen = () => {
             .then(movie => setMovieDetails(movie));
     useEffect(findMovieDetailsByImdbID, []);
 
+    const[isLiked, setLiked] = useState(null);
+    const[isDisliked, setDisliked] = useState(null);
+
+    const handleThumb = (like) => {
+        if (like === true){
+            return setLiked(!isLiked) && setDisliked(isDisliked)
+        } if (like === false){
+            return setDisliked(!isDisliked) && setLiked(isLiked)
+        }
+        //setLiked(!isLiked);
+    };
+
+
+
 
     return (
         <div className="container">
@@ -21,8 +35,8 @@ const DetailsScreen = () => {
                     <div className="col-md-3 d-none d-lg-block">
                         <img src={movieDetails.Poster} className="card-img rounded-start" alt="..."/>
                     </div>
-                    <div className="col-md-9">
-                        <div className="card-body">
+                    <div className="col-md-5">
+                        <div className="ms-1 card-body">
                             <h2 className="text-warning">{movieDetails.Title} ({movieDetails.Year}) {movieDetails.Rated}</h2>
                             <p className="card-text">Directed by: {movieDetails.Director}</p>
                             <p className="card-text">{movieDetails.Plot}</p>
@@ -39,33 +53,43 @@ const DetailsScreen = () => {
                             </ul>
                             <p>Genre: {movieDetails.Genre}</p>
                             {/*<textarea type="text" placeholder="What's your review?" className="form-control"/>*/}
+                            <button className="btn-primary fs-5">Add to Watchlist</button>
                         </div>
+
+                    </div>
+                    <div className="col-md-4">
+
+                            <div className="card-body">
+                                <h2 className="text-warning">Ratings</h2>
+
+                                {movieDetails.Ratings.map(s =>
+                                    <h2 className="text fs-5">
+                                        {s.Source}: {s.Value}
+                                    </h2>)
+                                }
+                                <h2 className="text-light fs-5">SneakPeak: 100%</h2>
+                            </div>
+
+
                     </div>
                 </div>
             </div>
             <div className="card mb-3 border-dark" >
-                <p className="card-header text-active fs-4">Reviews</p>
+                <p className="card-header text-active fs-4">Review</p>
                 <div className="row g-0">
-                    <div className="col-md-3 ps-1 mt-1 mb-0">
-                        <div className="card-body">
-
-                        {movieDetails.Ratings.map(s =>
-                            <h2 className="text-warning fs-5">
-                                {s.Source}: {s.Value}
-                            </h2>)
-                        }
-                        <h2 className="text-light fs-5">SneakPeak: 100%</h2>
-                        </div>
-
-                    </div>
-                    <div className="col-md-9">
+                    <div className="col-md-2 ps-1 mb-0">
                         <div className="card-body">
                             <span className="card-text fs-5">What did you think?</span>
                             <br/>
 
-                            <button className="mt-1 mb-1 btn-primary"><i className="far fa-thumbs-up fs-1"></i></button>
-                            <button className="ms-3 mt-1 mb-1 btn-danger"><i className="far fa-thumbs-down fs-1"></i></button>
+                            <button onClick={(e) => handleThumb(true)} className={isLiked ? "mt-1 mb-1 btn-success" : "mt-1 mb-1 btn-primary"}><i className="far fa-thumbs-up fs-1"></i></button>
+                            <button onClick={(e) => handleThumb(false)} className={isDisliked ? "ms-3 mt-1 mb-1 btn-danger" : "ms-3 mb-1 btn-primary"}><i className="far fa-thumbs-down fs-1"></i></button>
                             <br/>
+                        </div>
+
+                    </div>
+                    <div className="col-md-10">
+                        <div className="card-body">
                             <label for="userReview" className="card-text fs-5">What's your review?</label>
                             <textarea id="userReview" type="text"  className="form-control"/>
                         </div>

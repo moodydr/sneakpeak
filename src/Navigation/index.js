@@ -1,14 +1,26 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 const NavigationSidebar = ( {
                                 active = 'home'
                             }
 ) => {
+    const navigate = useNavigate();
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            navigate(`/sneakpeak/search/${e.target.value}`);
+        }
+    };
+
+    const configSearchButton = (e) => {
+        navigate(`/sneakpeak/search/${e.target.previousElementSibling.value}`);
+    }
+
+
     return(
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="#">SneakPeak</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -49,8 +61,10 @@ const NavigationSidebar = ( {
                             {/*</li>*/}
                         </ul>
                         <form className="d-flex">
-                            <input className="form-control me-sm-2" type="text" placeholder="Search"/>
-                                <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                            <input className="form-control me-sm-2" type="text" placeholder="Search" onKeyPress={(e) =>
+                                handleKeyPress(e)}/>
+                                <button className="btn btn-secondary my-2 my-sm-0" type="submit" onClick={(e) =>
+                                    configSearchButton(e)}>Search</button>
                         </form>
                     </div>
                 </div>
