@@ -20,9 +20,9 @@ const NavigationSidebar = ( {
 
     return(
         <>
-            <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="#">SneakPeak</Link>
+                    <Link className="navbar-brand fs-4" to="#">SneakPeak</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -63,7 +63,7 @@ const NavigationSidebar = ( {
                         <form className="d-flex">
                             <input className="form-control me-sm-2" type="text" placeholder="Search" onKeyPress={(e) =>
                                 handleKeyPress(e)}/>
-                                <button className="btn btn-secondary my-2 my-sm-0" type="submit" onClick={(e) =>
+                                <button className="btn btn-info my-2 my-sm-0" type="submit" onClick={(e) =>
                                     configSearchButton(e)}>Search</button>
                         </form>
                     </div>

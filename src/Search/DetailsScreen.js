@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import "./details.css"
+import "./details.css";
+import monster1 from "../../src/assets/monster1.png";
+import monster2 from "../../src/assets/monster2.png";
+import monster3 from "../../src/assets/monster3.png";
 
 const DetailsScreen = () => {
     const params = useParams();
@@ -77,7 +80,7 @@ const DetailsScreen = () => {
             <div className="card mb-3 border-dark" >
                 <p className="card-header text-active fs-4">Review</p>
                 <div className="row g-0">
-                    <div className="col-md-2 ps-1 mb-0">
+                    <div className="col-md-3 ps-1 mb-0">
                         <div className="card-body">
                             <span className="card-text fs-5">What did you think?</span>
                             <br/>
@@ -88,7 +91,7 @@ const DetailsScreen = () => {
                         </div>
 
                     </div>
-                    <div className="col-md-10">
+                    <div className="col-md-9">
                         <div className="card-body">
                             <label for="userReview" className="card-text fs-5">What's your review?</label>
                             <textarea id="userReview" type="text"  className="form-control"/>
@@ -99,76 +102,46 @@ const DetailsScreen = () => {
             <div className="card mb-3 border-dark mb-5">
                 <p className="card-header text-active fs-4">SneakPeak Users</p>
                 <div className="row g-0">
-                    <div className="col-md-4 col--6 ps-1">
-                        <div className="card-body">
-                            <div className="d-flex justify-content-center pb-2">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                     className="img-round" title="" alt="" />
+                        <ul className="list-group">
+                            <div className="list-group-item">
+                                <div className="row d-flex">
+                                    <div className="col-1 d-none d-lg-block">
+                                        <div className="ps-1 mt-4 pb-2">
+                                            <img src={monster1}
+                                                 className="img-round" title="" alt="" />
 
-                            </div>
-                            <div className="align-center">
-                                <p>" Sed ut perspiciatis unde omnis
-                                    iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                                    eaque ipsa quae. "</p>
-                                <h5 className=" mgb-5 fg-text-d fs-130" >Martha Stewart</h5>
-                                <small className=" case-u lts-sm fs-80 fg-text-l" >Business
-                                    Woman - New York</small>
+                                        </div>
 
-                            </div>
+                                    </div>
+                                    <div className="col-10 card-body">
+                                        <h5 className="text-warning active fs-5"> Movie Title Here</h5>
+                                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
+                                        <p className="text-white mt-1 mb-0">
+                                            - John Smith
+                                        </p>
 
+                                    </div>
+                                    <div className="col-1 card-body">
+                                        <i className="fas fa-trash"></i>
 
+                                    </div>
 
-
-                        </div>
-                    </div>
-                    <div className="col-md-4 co-6 ps-1">
-                        <div className="card-body">
-                            <div className="d-flex justify-content-center pb-2">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                                     className="img-round" title="" alt="" />
-
-                            </div>
-                            <div className="align-center">
-                                <p>" Sed ut perspiciatis unde omnis
-                                    iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                                    eaque ipsa quae. "</p>
-                                <h5 className=" mgb-5 fg-text-d fs-130" >Martha Stewart</h5>
-                                <small className=" case-u lts-sm fs-80 fg-text-l" >Business
-                                    Woman - New York</small>
+                                </div>
 
                             </div>
 
 
 
 
-                        </div>
-                    </div>
-                    <div className="col-md-4 col-6 ps-1">
-                        <div className="card-body">
-                            <div className="d-flex justify-content-center pb-2">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                                     className="img-round" title="" alt="" />
-
-                            </div>
-                            <div className="align-center">
-                                <p>" Sed ut perspiciatis unde omnis
-                                    iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                                    eaque ipsa quae. "</p>
-                                <h5 className=" mgb-5 fg-text-d fs-130" >Martha Stewart</h5>
-                                <small className=" case-u lts-sm fs-80 fg-text-l" >Business
-                                    Woman - New York</small>
-
-                            </div>
+                        </ul>
 
 
-
-
-                        </div>
-                    </div>
 
                 </div>
+
             </div>
             {/*{JSON.stringify(movieDetails)}*/}
+
         </div>
     )
 };

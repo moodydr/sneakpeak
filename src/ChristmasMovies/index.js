@@ -25,9 +25,9 @@ const ChristmasMovies = () =>{
 
 
 
-                <div className="card mt-2 border-dark">
+                <div className="card mt-3 border-dark">
                     <div className="card-header">
-                        <p className="text fs-2 mb-0">Top Holiday Movies</p>
+                        <p className="text fs-4 mb-0">Top Holiday Movies</p>
                     </div>
                     <ul className="list-group">
                         {movies.map(movie => (

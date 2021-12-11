@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../Navigation";
 import ChristmasMovies from "../ChristmasMovies";
+import ReviewList from "../ReviewList";
 
 
 
@@ -14,13 +15,12 @@ const HomeScreen = () => {
                     <Navigation active={"explore"} />
                 </div>
             </div>
-            <div className="row mt-5">
+            <div className="row mt-5 g-2">
                 <div className="col-2 col-md-2 col-lg-1 col-xl-2 mt-2">
-                    <h1> Left</h1>
+                    <p className="mt-2 ms-3">Placeholder for simple stats component</p>
                 </div>
-                <div className="col-10 col-lg-7 col-xl-6 mt-2"
-                     style={{"position": "relative"}}>
-                    <h1> Middle</h1>
+                <div className="col-10 col-lg-7 col-xl-6 mt-2">
+                    <ReviewList/>
                 </div>
                 <div className="d-sm-none d-md-none d-lg-block col-lg-4 col-xl-4 mt-2">
                     <ChristmasMovies/>
