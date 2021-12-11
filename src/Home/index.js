@@ -15,7 +15,7 @@ const HomeScreen = () => {
                     <Navigation active={"explore"} />
                 </div>
             </div>
-            <div className="row mt-5 g-2">
+            <div className="row mt-5">
                 <div className="col-2 col-md-2 col-lg-1 col-xl-2 mt-2">
                     <p className="mt-2 ms-3">Placeholder for simple stats component</p>
                 </div>
