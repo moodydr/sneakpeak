@@ -6,6 +6,7 @@ import Navigation from "../Navigation";
 const Login = () => {
     const [user, setUser] = useState({});
     const navigate = useNavigate();
+
     const login = () => {
         fetch(`${API_URL}/login`, {
             method: 'POST',
@@ -15,7 +16,8 @@ const Login = () => {
                 'content-type': 'application/json'
             }
         }).then(status => {
-            navigate('/sneakpeak/profile')
+
+            navigate(`/sneakpeak/profile/${user.username}`)
         });
     }
     return (<>
