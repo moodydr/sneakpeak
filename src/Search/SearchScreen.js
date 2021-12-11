@@ -5,7 +5,7 @@ import {Link, useNavigate, useParams} from "react-router-dom";
 const SearchScreen = () =>{
     const params = useParams();
     const navigate = useNavigate();
-    const movieTitle = params.searchTerm || 'batman';
+    const movieTitle = params.searchTerm || '';
     const [searchTerm, setSearchTerm] = useState(movieTitle)
     const [movies, setMovies] = useState([]);
     const findMovies = () =>
@@ -21,7 +21,7 @@ const SearchScreen = () =>{
         }
     };
 
-    const configSaveHandler = (e) => {
+    const configSearchButton = (e) => {
         setSearchTerm(e.target.previousElementSibling.value);
     }
 
@@ -40,7 +40,7 @@ const SearchScreen = () =>{
                     handleKeyPress(e)}
                 />
                 <button onClick={(e) =>
-                configSaveHandler(e)} type="button" className="btn btn-primary">Search</button>
+                configSearchButton(e)} type="button" className="btn btn-primary">Search</button>
             </div>
             <div className="row mt-4">
 
@@ -82,7 +82,7 @@ const SearchScreen = () =>{
                     </div>
                 }
             </div>
-            {JSON.stringify(movies)}
+            {/*{JSON.stringify(movies)}*/}
             </div>
         </div>
     )
