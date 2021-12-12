@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import sneakpeak from "../assets/sneakpeak.png";
 import './landing.css';
 
+
 const LandingScreen = () => {
     return (<>
             <div className="landingContainer">
@@ -18,6 +19,7 @@ const LandingScreen = () => {
                                 Enter something here
                             </p>
 
+
                         </div>
 
                         <div className="col"></div>
@@ -29,7 +31,7 @@ const LandingScreen = () => {
                             <img src={sneakpeak} alt="sneakpeaklogo" className={"resize-logo"} />
 
 
-                            <Link to="/sneakpeak/register" className="signUpButton no-decor">
+                            <Link to="/register" className="signUpButton no-decor">
                                 <h3 className={'mt-3 text-light text-center'}>Sign Up!</h3>
                             </Link>
 

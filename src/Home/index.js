@@ -6,6 +6,7 @@ import MakeFriends from "../MakeFriends";
 
 
 
+
 const HomeScreen = () => {
 
 
@@ -23,6 +24,7 @@ const HomeScreen = () => {
                 </div>
                 <div className="col-7 col-md-8 col-xl-6 mt-2">
                     <ReviewList/>
+
                 </div>
                 <div className="d-none d-md-none d-xl-block col-xl-3 mt-2">
                     <ChristmasMovies/>

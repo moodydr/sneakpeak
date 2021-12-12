@@ -14,20 +14,22 @@ import DetailsScreen from "./Search/DetailsScreen";
 import Register from "./Login/Register";
 import Login from "./Login/Login";
 import Profile from "./Profile/Profile";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 function App() {
   return (
       <BrowserRouter>
           <Routes>
-              <Route exact path="/sneakpeak" element={<LandingScreen/>}/>
-              <Route exact path="/sneakpeak/login" element={<Login/>}/>
-              <Route exact path="/sneakpeak/register" element={<Register/>}/>
-              <Route exact path="/sneakpeak/profile/:id" element={<Profile/>}/>
-              <Route exact path="/sneakpeak/home" element={<HomeScreen/>}/>
-              <Route exact path="/sneakpeak/watchlists" element={<WatchListScreen/>}/>
-              <Route path="/sneakpeak/search" element={<SearchScreen/>}/>
-              <Route path="/sneakpeak/search/:searchTerm" element={<SearchScreen/>}/>
-              <Route path="/sneakpeak/search/details/:id" element={<DetailsScreen/>}/>
+              <Route exact path="/" element={<LandingScreen/>}/>
+              <Route exact path="/login" element={<Login/>}/>
+              <Route exact path="/register" element={<Register/>}/>
+              <Route path="/register/privacy" element={<PrivacyPolicy/>}/>
+              <Route exact path="/profile/:id" element={<Profile/>}/>
+              <Route exact path="/home" element={<HomeScreen/>}/>
+              <Route exact path="/watchlists" element={<WatchListScreen/>}/>
+              <Route path="/search" element={<SearchScreen/>}/>
+              <Route path="/search/:searchTerm" element={<SearchScreen/>}/>
+              <Route path="/search/details/:id" element={<DetailsScreen/>}/>
           </Routes>
        </BrowserRouter>
   );

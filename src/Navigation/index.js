@@ -9,12 +9,12 @@ const NavigationSidebar = ( {
     const navigate = useNavigate();
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-            navigate(`/sneakpeak/search/${e.target.value}`);
+            navigate(`/search/${e.target.value}`);
         }
     };
 
     const configSearchButton = (e) => {
-        navigate(`/sneakpeak/search/${e.target.previousElementSibling.value}`);
+        navigate(`/search/${e.target.previousElementSibling.value}`);
     }
 
 
@@ -32,18 +32,18 @@ const NavigationSidebar = ( {
                     <div className="collapse navbar-collapse" id="navbarColor03">
                         <ul className="navbar-nav me-auto">
                             <li className="nav-item">
-                                <Link className={`nav-link  ${active === `home` ? `active` : ``}`} to="/sneakpeak/home">Home
+                                <Link className={`nav-link  ${active === `home` ? `active` : ``}`} to="/home">Home
                                     <span className="visually-hidden">(current)</span>
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link  ${active === `watchlists` ? `active` : ``}`} to="/sneakpeak/watchlists">Watch Lists</Link>
+                                <Link className={`nav-link  ${active === `watchlists` ? `active` : ``}`} to="/watchlists">Watch Lists</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link  ${active === `profile` ? `active` : ``}`} to="/sneakpeak/profile">Profile</Link>
+                                <Link className={`nav-link  ${active === `profile` ? `active` : ``}`} to="/profile">Profile</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link  ${active === `search` ? `active` : ``}`} to="/sneakpeak/search">Search</Link>
+                                <Link className={`nav-link  ${active === `search` ? `active` : ``}`} to="/search">Search</Link>
                             </li>
                             {/*<li className="nav-item dropdown">*/}
                             {/*    <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"*/}

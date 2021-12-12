@@ -17,7 +17,7 @@ const Login = () => {
             }
         }).then(status => {
 
-            navigate(`/sneakpeak/profile/${user.username}`)
+            navigate(`/profile/${user.username}`)
         });
     }
     return (<>
@@ -69,7 +69,7 @@ const Login = () => {
                                 </div>
 
                                 <div>
-                                    <p className="mb-0">Don't have an account? <Link to="/sneakpeak/register"
+                                    <p className="mb-0">Don't have an account? <Link to="/register"
                                                                                   className="text-white-50 fw-bold">Sign
                                         Up</Link></p>
                                 </div>

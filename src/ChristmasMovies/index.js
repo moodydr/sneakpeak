@@ -32,7 +32,7 @@ const ChristmasMovies = () =>{
                     <ul className="list-group">
                         {movies.map(movie => (
                             <div className="list-group-item">
-                                <Link className="no-underline" to={`/sneakpeak/search/details/${movie.imdbID}`} >
+                                <Link className="no-underline" to={`/search/details/${movie.imdbID}`} >
                                     <div className="row">
                                         <div className="d-none d-xl-block col-3">
                                             <img className="wd-poster" alt="" src={movie.Poster}/>

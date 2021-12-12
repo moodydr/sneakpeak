@@ -10,7 +10,7 @@ const SearchScreen = () =>{
     const [movies, setMovies] = useState([]);
     const findMovies = () =>
     {
-        navigate(`/sneakpeak/search/${searchTerm}`);
+        navigate(`/search/${searchTerm}`);
         fetch (`http://www.omdbapi.com/?s=${searchTerm}&apikey=cf2e21f0`)
             .then(res => res.json())
             .then(results => setMovies(results.Search))
@@ -61,7 +61,7 @@ const SearchScreen = () =>{
 
 
                     <div className="col-md-3 col-4 col-lg-2">
-                        <Link className="no-underline" to={`/sneakpeak/search/details/${movie.imdbID}`} >
+                        <Link className="no-underline" to={`/search/details/${movie.imdbID}`} >
                             <div className="card border-0" >
                                 <img src={movie.Poster} className="card-img-top"  alt="..."/>
                                 <div className="card-body">
