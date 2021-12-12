@@ -3,6 +3,7 @@ import {useState} from "react";
 import {API_URL} from "../consts";
 import Navigation from "../Navigation";
 import PrivacyPolicy from "../PrivacyPolicy";
+import monster3 from "../assets/monster3.png";
 
 
 const Register = () => {
@@ -53,6 +54,39 @@ const Register = () => {
 
                                     <button className="btn btn-outline-light btn-md px-5 mt-2"
                                             onClick={register}>Register</button>
+
+
+
+
+                                   <div className="row">
+                                       <div className="col-6">
+
+
+                                                   <input type="radio" className="form-check-input" name="optionsRadios"
+                                                          id="optionsRadios1" value="option1" checked=""/>
+                                           <img src={monster3} className=" w-50 " />
+
+
+
+
+                                       </div>
+                                       <div className="col-6">
+
+                                       </div>
+                                   </div>
+                                    <div className="row">
+                                        <div className="col-6">
+
+                                        </div>
+                                        <div className="col-6">
+
+                                        </div>
+                                    </div>
+
+
+
+
+
 
 
                                     {/*<div className="d-flex justify-content-center text-center mt-4 pt-1">*/}

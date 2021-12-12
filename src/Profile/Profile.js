@@ -3,7 +3,6 @@ import {useEffect, useState} from "react";
 import {useNavigate} from "react-router";
 import {API_URL} from "../consts";
 import Navigation from "../Navigation";
-import monster3 from "../assets/monster3.png";
 import ReviewList from "../ReviewList";
 
 
@@ -16,16 +15,22 @@ const Profile = function (props) {
                 fetch(`${API_URL}/profile`, {
                         method: 'POST',
                         credentials: 'include'
+
                 }).then(res => res.json())
                     .then(user => {
                             setUser(user);
                     }).catch(e => navigate('/login'));
         }
+        const userAvatar = (user.avatar);
+        console.log(user);
+        console.log(user._id);
+
+
         const logout = () => {
                 fetch(`${API_URL}/logout`, {
                         method: 'POST',
                         credentials: 'include'
-                }).then(res => navigate('/sneakpeak'));
+                }).then(res => navigate('/'));
         }
         useEffect(getProfile, [navigate]);
 
@@ -44,8 +49,8 @@ const Profile = function (props) {
 
                                                                     <div className="user-avatar">
                                                                             <img className="img-fluid "
-                                                                                src={monster3}
-                                                                                alt="Maxwell Admin"/>
+                                                                             src={require('../assets/monster3.png').default}
+                                                                                alt="avatar"/>
                                                                     </div>
                                                                     <p className="user-name text-white mb-0 fw-bold fs-4">{user.username}</p>
                                                                     <span className="user-email fs-6 mt-0 fw-bold">{user.email}</span>
@@ -67,31 +72,31 @@ const Profile = function (props) {
                                                             </div>
                                                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                                     <div className="form-group">
-                                                                            <label htmlFor="fullName">Full Name</label>
+                                                                            <label htmlFor="firstName">First Name</label>
                                                                             <input type="text" className="form-control"
-                                                                                   id="fullName"
-                                                                                   placeholder="Enter full name"/>
+                                                                                   id="firstName"
+                                                                                   placeholder="Enter first name"/>
                                                                     </div>
                                                             </div>
                                                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                                     <div className="form-group">
-                                                                            <label htmlFor="eMail">Email</label>
-                                                                            <input type="email" className="form-control"
-                                                                                   id="eMail"
-                                                                                   placeholder="Enter email ID"/>
-                                                                    </div>
-                                                            </div>
-                                                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                                    <div className="form-group">
-                                                                            <label htmlFor="phone">Favorite Movie</label>
+                                                                            <label htmlFor="lastName">Last Name</label>
                                                                             <input type="text" className="form-control"
-                                                                                   id="favoritemovie"
-                                                                                   placeholder="Enter movie"/>
+                                                                                   id="lastName"
+                                                                                   placeholder="Enter last name"/>
                                                                     </div>
                                                             </div>
                                                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                                     <div className="form-group">
-                                                                            <label htmlFor="website">Website URL</label>
+                                                                            <label htmlFor="phone">Email</label>
+                                                                            <input type="text" className="form-control"
+                                                                                   id="email"
+                                                                                   placeholder="Enter email"/>
+                                                                    </div>
+                                                            </div>
+                                                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                                    <div className="form-group">
+                                                                            <label htmlFor="website">Website</label>
                                                                             <input type="url" className="form-control"
                                                                                    id="website"
                                                                                    placeholder="Website url"/>
