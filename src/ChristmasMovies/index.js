@@ -35,11 +35,11 @@ const ChristmasMovies = () =>{
                                 <Link className="no-underline" to={`/sneakpeak/search/details/${movie.imdbID}`} >
                                     <div className="row">
                                         <div className="d-none d-xl-block col-3">
-                                            <img className="wd-small-image" alt="" src={movie.Poster}/>
+                                            <img className="wd-poster" alt="" src={movie.Poster}/>
                                         </div>
                                         <div className="col-9">
-                                            <p className="text-white fw-bold">{movie.Title}</p>
-                                            <button className="btn-danger"><i className="fas fa-sleigh"></i> Details</button>
+                                            <p className="text-white ">{movie.Title}</p>
+                                            <button className="btn btn-danger fw-bolder"><i className="fas fa-sleigh"></i> Details</button>
                                         </div>
 
                                     </div>

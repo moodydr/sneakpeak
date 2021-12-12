@@ -22,7 +22,7 @@ const NavigationSidebar = ( {
         <>
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand fs-4" to="#">SneakPeak</Link>
+                    <Link className="navbar-brand fw-bold fs-4" to="#">SneakPeak</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -35,9 +35,6 @@ const NavigationSidebar = ( {
                                 <Link className={`nav-link  ${active === `home` ? `active` : ``}`} to="/sneakpeak/home">Home
                                     <span className="visually-hidden">(current)</span>
                                 </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className={`nav-link  ${active === `explore` ? `active` : ``}`} to="/sneakpeak/explore">Explore</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link  ${active === `watchlists` ? `active` : ``}`} to="/sneakpeak/watchlists">Watch Lists</Link>

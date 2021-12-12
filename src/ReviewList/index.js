@@ -18,62 +18,21 @@ const ReviewList = () => {
                             <div className="row d-flex">
                                 <div className="col-2 d-none d-lg-block">
                                     <div className="ps-1 mt-4 pb-2">
-                                        <img src={monster1}
-                                             className="img-round" title="" alt="" />
+                                        <img src="https://m.media-amazon.com/images/M/MV5BMTM1MTI5ODU4MV5BMl5BanBnXkFtZTcwNTYyNTU4Mg@@._V1_SX300.jpg"
+                                             className="card-img" title="" alt="" />
                                     </div>
                                 </div>
-                                <div className="col-9 card-body">
+                                <div className="col-10 card-body">
                                     <h5 className="text-warning active fs-5"> Movie Title Here</h5>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                                    <p className="text-white mt-1 mb-0">
+                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </span>
+                                    <br/>
+                                    <span className="text-white mt-1 mb-0 me-2">
                                         - John Smith
-                                    </p>
-                                </div>
-                                <div className="col-1 card-body">
-                                    <i className="fas fa-trash"></i>
+                                    </span><button className="btn"><i className=" fas fa-trash"></i></button>
                                 </div>
                             </div>
                         </div>
-                        <div className="list-group-item">
-                            <div className="row d-flex">
-                                <div className="col-2 d-none d-lg-block">
-                                    <div className="ps-1 mt-4 pb-2">
-                                        <img src={monster2}
-                                             className="img-round" title="" alt="" />
-                                    </div>
-                                </div>
-                                <div className="col-9 card-body">
-                                    <h5 className="text-warning active fs-5"> Movie Title Here</h5>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                                    <p className="text-white mt-1 mb-0">
-                                        - John Smith
-                                    </p>
-                                </div>
-                                <div className="col-1 card-body">
-                                    <i className="fas fa-trash"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="list-group-item">
-                            <div className="row d-flex">
-                                <div className="col-2 d-none d-lg-block">
-                                    <div className="ps-1 mt-4 pb-2">
-                                        <img src={monster3}
-                                             className="img-round" title="" alt="" />
-                                    </div>
-                                </div>
-                                <div className="col-9 card-body">
-                                    <h5 className="text-warning active fs-5"> Movie Title Here</h5>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                                    <p className="text-white mt-1 mb-0">
-                                        - John Smith
-                                    </p>
-                                </div>
-                                <div className="col-1 card-body">
-                                    <i className="fas fa-trash"></i>
-                                </div>
-                            </div>
-                        </div>
+
                     </ul>
                 </div>
 

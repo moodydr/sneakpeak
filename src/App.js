@@ -6,7 +6,6 @@ import './vendors/fontawesome/css/all.min.css';
 import SearchScreen from "./Search/SearchScreen";
 import './App.css';
 import ProfileScreen from "./Profile";
-import ExploreScreen from "./Explore";
 import HomeScreen from "./Home";
 import WatchListScreen from "./WatchLists";
 import LandingScreen from "./Landing/LandingScreen";
@@ -24,12 +23,11 @@ function App() {
               <Route exact path="/sneakpeak/login" element={<Login/>}/>
               <Route exact path="/sneakpeak/register" element={<Register/>}/>
               <Route exact path="/sneakpeak/profile/:id" element={<Profile/>}/>
-              <Route exact path="/sneakpeak/explore" element={<ExploreScreen/>}/>
               <Route exact path="/sneakpeak/home" element={<HomeScreen/>}/>
               <Route exact path="/sneakpeak/watchlists" element={<WatchListScreen/>}/>
               <Route path="/sneakpeak/search" element={<SearchScreen/>}/>
               <Route path="/sneakpeak/search/:searchTerm" element={<SearchScreen/>}/>
-              <Route path="/sneakpeak/search/details/:username" element={<DetailsScreen/>}/>
+              <Route path="/sneakpeak/search/details/:id" element={<DetailsScreen/>}/>
           </Routes>
        </BrowserRouter>
   );

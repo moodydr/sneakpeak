@@ -38,7 +38,7 @@ const DetailsScreen = () => {
                     <div className="col-md-3 d-none d-lg-block">
                         <img src={movieDetails.Poster} className="card-img rounded-start" alt="..."/>
                     </div>
-                    <div className="col-md-5">
+                    <div className="col-9 col-lg-5">
                         <div className="ms-1 card-body">
                             <h2 className="text-warning">{movieDetails.Title} ({movieDetails.Year}) {movieDetails.Rated}</h2>
                             <p className="card-text">Directed by: {movieDetails.Director}</p>
@@ -56,11 +56,11 @@ const DetailsScreen = () => {
                             </ul>
                             <p>Genre: {movieDetails.Genre}</p>
                             {/*<textarea type="text" placeholder="What's your review?" className="form-control"/>*/}
-                            <button className="btn-primary fs-5">Add to Watchlist</button>
+                            <button className="btn btn-primary fs-5">Add to Watchlist</button>
                         </div>
 
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-3 col-lg-4">
 
                             <div className="card-body">
                                 <h2 className="text-warning">Ratings</h2>
@@ -85,8 +85,8 @@ const DetailsScreen = () => {
                             <span className="card-text fs-5">What did you think?</span>
                             <br/>
 
-                            <button onClick={(e) => handleThumb(true)} className={isLiked ? "mt-1 mb-1 btn-success" : "mt-1 mb-1 btn-primary"}><i className="far fa-thumbs-up fs-1"></i></button>
-                            <button onClick={(e) => handleThumb(false)} className={isDisliked ? "ms-3 mt-1 mb-1 btn-danger" : "ms-3 mb-1 btn-primary"}><i className="far fa-thumbs-down fs-1"></i></button>
+                            <button onClick={(e) => handleThumb(true)} className={isLiked ? "mt-1 mb-1 btn btn-success" : "mt-1 mb-1 btn btn-primary"}><i className="far fa-thumbs-up fs-1"></i></button>
+                            <button onClick={(e) => handleThumb(false)} className={isDisliked ? "ms-3 mt-1 mb-1 btn btn-danger" : "ms-3 mb-1 btn btn-primary"}><i className="far fa-thumbs-down fs-1"></i></button>
                             <br/>
                         </div>
 
