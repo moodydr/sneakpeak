@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import monster1 from "../assets/monster1.png";
 import monster2 from "../assets/monster2.png";
 import monster3 from "../assets/monster3.png";
@@ -8,6 +8,14 @@ import './styles.css';
 
 
 const MakeFriends = () => {
+    //once we're able to pull the user list here, these functions and parts of this code may need to be moved into a makefriendslistitem component
+    // which would allow us to map properly
+    const[areFriends, makeFriends] = useState(false);
+    const[buttonText, setButtonText] = useState("Follow");
+    const addFriend = (text) => {
+        makeFriends(!areFriends);
+        setButtonText(text);
+    };
 
 
     return (<>
@@ -26,7 +34,7 @@ const MakeFriends = () => {
 
                         </div>
                         <div className="col-5 col-lg-4 pe-1 ps-0">
-                            <button className="btn btn-primary mt-1">Follow</button>
+                            <button className={areFriends ? "btn btn-light mt-1" : "btn btn-primary mt-1"} onClick={() => addFriend("Following")}>{buttonText}</button>
                         </div>
                     </div>
                 </li>

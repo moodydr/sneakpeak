@@ -1,14 +1,13 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import {API_URL} from "../consts";
-import {useState} from "react/cjs/react.production.min";
 
 
 const NavigationSidebar = ( {
                                 active = 'home'
                             }
 ) => {
-    const [user, setUser] = useState({user: ''});
+    const [user, setUser] = useState({});
     const navigate = useNavigate();
     const getProfile = () => {
         fetch(`${API_URL}/profile`, {
@@ -18,22 +17,19 @@ const NavigationSidebar = ( {
         }).then(res => res.json())
             .then(user => {
                 setUser(user);
-            }).catch(e => navigate('/login'));
+            })
+            // .catch(e => navigate('/login'));
     }
-
-
-
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             navigate(`/search/${e.target.value}`);
         }
     };
-
     const configSearchButton = (e) => {
         navigate(`/search/${e.target.previousElementSibling.value}`);
     }
-
-
+    useEffect(getProfile, [navigate]);
+    console.log(user);
 
     return(
         <>
@@ -54,10 +50,10 @@ const NavigationSidebar = ( {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link  ${active === `watchlists` ? `active` : ``}`} to="/watchlists">Watch List</Link>
+                                <Link className={`nav-link  ${active === `watchlists` ? `active` : ``}`} to="/watchlist">Watch List</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link  ${active === `profile` ? `active` : ``}`} to="/profile">Profile</Link>
+                                <Link className={`nav-link  ${active === `profile` ? `active` : ``}`} to={`/profile/${user.username}`}>Profile</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link  ${active === `search` ? `active` : ``}`} to="/search">Search</Link>

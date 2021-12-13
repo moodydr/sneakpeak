@@ -26,7 +26,7 @@ function App() {
               <Route path="/register/privacy" element={<PrivacyPolicy/>}/>
               <Route exact path="/profile/:id" element={<Profile/>}/>
               <Route exact path="/home" element={<HomeScreen/>}/>
-              <Route exact path="/watchlists" element={<WatchListScreen/>}/>
+              <Route exact path="/watchlist/:id" element={<WatchListScreen/>}/>
               <Route path="/search" element={<SearchScreen/>}/>
               <Route path="/search/:searchTerm" element={<SearchScreen/>}/>
               <Route path="/search/details/:id" element={<DetailsScreen/>}/>

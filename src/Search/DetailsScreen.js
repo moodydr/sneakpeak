@@ -93,8 +93,8 @@ const DetailsScreen = () => {
                     </div>
                     <div className="col-md-9">
                         <div className="card-body">
-                            <label for="userReview" className="card-text fs-5">What's your review?</label>
-                            <textarea id="userReview" type="text"  className="form-control"/>
+                            <label for="userReview" className="card-text fs-5">What's your review?</label><button className="btn btn-primary ms-3">Save</button>
+                            <textarea rows="6" id="userReview" type="text"  className="form-control"/>
                         </div>
                     </div>
                 </div>

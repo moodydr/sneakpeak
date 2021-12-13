@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {Link, useNavigate, useParams} from "react-router-dom";
+import Navigation from "../Navigation";
 
 
 const SearchScreen = () =>{
@@ -29,6 +30,7 @@ const SearchScreen = () =>{
     useEffect(findMovies, [searchTerm, navigate]);
     return(
         <div>
+            <Navigation/>
             <div className="container">
             <h1>Search Screen</h1>
             <div class="input-group">
