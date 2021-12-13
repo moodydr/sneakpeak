@@ -24,6 +24,7 @@ const Profile = function (props) {
         const userAvatar = (user.avatar);
         console.log(user);
         console.log(user._id);
+        console.log(user.avatar);
 
 
         const logout = () => {
