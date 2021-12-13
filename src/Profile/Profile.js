@@ -50,7 +50,7 @@ const Profile = function (props) {
 
                                                                     <div className="user-avatar">
                                                                             <img className="img-fluid "
-                                                                             src={require('../assets/monster3.png').default}
+                                                                             src={user.avatar}
                                                                                 alt="avatar"/>
                                                                     </div>
                                                                     <p className="user-name text-white mb-0 fw-bold fs-4">{user.username}</p>
