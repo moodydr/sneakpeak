@@ -4,6 +4,9 @@ import {API_URL} from "../consts";
 import Navigation from "../Navigation";
 import PrivacyPolicy from "../PrivacyPolicy";
 import monster3 from "../assets/monster3.png";
+import monster1 from "../assets/monster1.png";
+import monster2 from "../assets/monster2.png";
+import monster4 from "../assets/monster4.png";
 
 
 const Register = () => {
@@ -17,7 +20,7 @@ const Register = () => {
             headers: {
                 'content-type': 'application/json'
             }
-        }).then(status => navigate('/sneakpeak/profile'));
+        }).then(status => navigate(`/profile/${user.username}`));
     };
     return (<>
             <Navigation active={'home'}/>
@@ -52,36 +55,42 @@ const Register = () => {
                                         <label className="form-label" htmlFor="typePasswordX">Password</label>
                                     </div>
 
+
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <input type="radio" className="form-check-input" name="optionsRadios"
+                                                   id="optionsRadios1" value="option1" checked=""
+                                                   onChange={(e) => setUser({...user, avatar: monster1})}/>
+                                            <img src={monster1} className=" w-50 " />
+                                        </div>
+                                        <div className="col-6">
+                                            <input type="radio" className="form-check-input" name="optionsRadios"
+                                                   id="optionsRadios1" value="option1" checked=""
+                                                   onChange={(e) => setUser({...user, avatar: monster2})}/>
+                                            <img src={monster2} className=" w-50 " />
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <input type="radio" className="form-check-input" name="optionsRadios"
+                                                   id="optionsRadios1" value="option1" checked=""
+                                                   onChange={(e) => setUser({...user, avatar: monster3})}/>
+                                            <img src={monster3} className=" w-50 h-75 " />
+                                        </div>
+                                        <div className="col-6">
+                                            <input type="radio" className="form-check-input" name="optionsRadios"
+                                                   id="optionsRadios1" value="option1" checked=""
+                                                   onChange={(e) => setUser({...user, avatar: monster4})}/>
+                                            <img src={monster4} className=" w-50 " />
+                                        </div>
+                                    </div>
+
+
                                     <button className="btn btn-outline-light btn-md px-5 mt-2"
                                             onClick={register}>Register</button>
 
 
 
-
-                                   <div className="row">
-                                       <div className="col-6">
-
-
-                                                   <input type="radio" className="form-check-input" name="optionsRadios"
-                                                          id="optionsRadios1" value="option1" checked=""/>
-                                           <img src={monster3} className=" w-50 " />
-
-
-
-
-                                       </div>
-                                       <div className="col-6">
-
-                                       </div>
-                                   </div>
-                                    <div className="row">
-                                        <div className="col-6">
-
-                                        </div>
-                                        <div className="col-6">
-
-                                        </div>
-                                    </div>
 
 
 

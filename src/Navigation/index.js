@@ -1,12 +1,28 @@
 import React from "react";
 import {Link, useNavigate} from "react-router-dom";
+import {API_URL} from "../consts";
+import {useState} from "react/cjs/react.production.min";
 
 
 const NavigationSidebar = ( {
                                 active = 'home'
                             }
 ) => {
+    const [user, setUser] = useState({user: ''});
     const navigate = useNavigate();
+    const getProfile = () => {
+        fetch(`${API_URL}/profile`, {
+            method: 'POST',
+            credentials: 'include'
+
+        }).then(res => res.json())
+            .then(user => {
+                setUser(user);
+            }).catch(e => navigate('/login'));
+    }
+
+
+
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             navigate(`/search/${e.target.value}`);
@@ -16,6 +32,7 @@ const NavigationSidebar = ( {
     const configSearchButton = (e) => {
         navigate(`/search/${e.target.previousElementSibling.value}`);
     }
+
 
 
     return(
