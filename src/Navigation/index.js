@@ -17,7 +17,7 @@ const NavigationSidebar = ( {
         }).then(res => res.json())
             .then(user => {
                 setUser(user);
-            })
+            });
             // .catch(e => navigate('/login'));
     }
     const handleKeyPress = (e) => {
