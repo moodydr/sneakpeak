@@ -29,6 +29,7 @@ const NavigationSidebar = ( {
         navigate(`/search/${e.target.previousElementSibling.value}`);
     }
     useEffect(getProfile, [navigate]);
+    // console.log(user);
 
     return(
         <>

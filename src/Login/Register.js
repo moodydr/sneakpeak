@@ -65,7 +65,7 @@ const Register = () => {
                                         </div>
                                         <div className="col-6">
                                             <input type="radio" className="form-check-input" name="optionsRadios"
-                                                   id="optionsRadios1" value="option1" checked=""
+                                                   id="optionsRadios1" value="option2" checked=""
                                                    onChange={(e) => setUser({...user, avatar: monster2})}/>
                                             <img src={monster2} className=" w-50 " />
                                         </div>
@@ -73,13 +73,13 @@ const Register = () => {
                                     <div className="row">
                                         <div className="col-6">
                                             <input type="radio" className="form-check-input" name="optionsRadios"
-                                                   id="optionsRadios1" value="option1" checked=""
+                                                   id="optionsRadios1" value="option3" checked=""
                                                    onChange={(e) => setUser({...user, avatar: monster3})}/>
                                             <img src={monster3} className=" w-50 h-75 " />
                                         </div>
                                         <div className="col-6">
                                             <input type="radio" className="form-check-input" name="optionsRadios"
-                                                   id="optionsRadios1" value="option1" checked=""
+                                                   id="optionsRadios1" value="option4" checked=""
                                                    onChange={(e) => setUser({...user, avatar: monster4})}/>
                                             <img src={monster4} className=" w-50 " />
                                         </div>
