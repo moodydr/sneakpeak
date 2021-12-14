@@ -9,6 +9,7 @@ import ReviewList from "../ReviewList";
 
 
 const Profile = function (props) {
+        const profReviews = true;
         const [user, setUser] = useState({});
         const navigate = useNavigate();
         const getProfile = () => {
@@ -29,6 +30,7 @@ const Profile = function (props) {
                 }).then(res => navigate('/'));
         }
         useEffect(getProfile, [navigate]);
+        console.log(user._id);
 
     // we show the page if the user is logged in and redirect to the login page if not. this component uses conditional rendering and array mapping to generate the cards.
     //if (props.user && props.user._id) {
@@ -125,7 +127,7 @@ const Profile = function (props) {
                     </div>
                     <div className="row g-0">
                             <div className="">
-                                    <ReviewList/>
+                                    <ReviewList current = {profReviews} />
                             </div>
 
 
