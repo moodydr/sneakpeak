@@ -45,8 +45,7 @@ const MakeFriends = () => {
 
 
     const [newFriend, setNewFriend] = useState([]);
-    const createFriend = (friend) => {
-        console.log(friend);
+    const createFriend = () => {
         fetch(`${API_URL}/following`, {
             method: `POST`,
             body: JSON.stringify(newFriend),
@@ -94,7 +93,7 @@ const MakeFriends = () => {
                             <div className="col-5 col-lg-4 pe-1 ps-0">
                                 {/*areFriends ? "btn btn-light mt-1" :*/}
                                 <button className={"btn btn-primary mt-1"}
-                                        onClick={createFriend((e) => e.target.value)} >Follow</button>
+                                        onClick={} >Follow</button>
                             </div>
                         </div>
                     </li>
