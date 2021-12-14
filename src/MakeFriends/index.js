@@ -5,7 +5,6 @@ import monster3 from "../assets/monster3.png";
 import monster4 from "../assets/monster3.png";
 import './styles.css';
 import {API_URL} from "../consts";
-import friendItem from "./friendItem";
 import userService from "../services/userService";
 import {useNavigate} from "react-router";
 
@@ -13,6 +12,8 @@ import {useNavigate} from "react-router";
 
 
 const MakeFriends = () => {
+
+    // () => setNewFriend( {...newFriend, username: user.username, following: {friend: `${f.username}`}} )
     //once we're able to pull the user list here, these functions and parts of this code may need to be moved into a makefriendslistitem component
     // which would allow us to map properly
     // const[areFriends, makeFriends] = useState(false);
@@ -28,8 +29,9 @@ const MakeFriends = () => {
     useEffect(getAllUsers,[]);
 
 
-    const [user, setUser] = useState({});
+
     const navigate = useNavigate();
+    const [user, setUser] = useState({});
     const getProfile = () => {
         fetch(`${API_URL}/profile`, {
             method: 'POST',
@@ -42,9 +44,7 @@ const MakeFriends = () => {
     }
 
 
-
-
-    const [newFriend, setNewFriend] = useState({});
+    const [newFriend, setNewFriend] = useState([]);
     const createFriend = () => {
         fetch(`${API_URL}/following`, {
             method: `POST`,
@@ -53,15 +53,23 @@ const MakeFriends = () => {
             headers: {
                 'content-type': 'application/json'
             }
-        })
-        console.log(friends);
+        });
+        // console.log(friends);
     };
 
+    const findFollowingById = (id) =>
+        fetch(`${API_URL}/${id}`)
+            .then(response => response.json());
 
-    const onFollowClick = (friend) => {
-        console.log(friend);
 
-    }
+
+    useEffect(getProfile, [navigate]);
+
+    // useEffect(createFriend,[]);
+
+
+
+
 
 
     return (<>
@@ -69,11 +77,6 @@ const MakeFriends = () => {
             <div className="list-group-item border-dark">
                 <p className="text fs-5 mb-0 mt-3">Watch with Friends</p>
             </div>
-            {
-                friends.slice(0,8).map(friend =>
-                    <friendItem f={friend}/>
-                        )
-            }
 
             {friends.slice(0, 8).map(f => <>
                 <div key={f._id} className="card mt-3 mb-3 border-dark">
@@ -89,7 +92,8 @@ const MakeFriends = () => {
                             </div>
                             <div className="col-5 col-lg-4 pe-1 ps-0">
                                 {/*areFriends ? "btn btn-light mt-1" :*/}
-                                <button className={"btn btn-primary mt-1"} onClick={() => console.log({f})} >Follow</button>
+                                <button className={"btn btn-primary mt-1"}
+                                        onClick={} >Follow</button>
                             </div>
                         </div>
                     </li>
@@ -99,6 +103,8 @@ const MakeFriends = () => {
 
 
     );
+
+
 }
 
 export default MakeFriends;
