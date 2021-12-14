@@ -1,14 +1,19 @@
-import React from "react";
-import monster1 from "../assets/monster1.png";
-import monster2 from "../assets/monster2.png";
-import monster3 from "../assets/monster3.png";
+import React, {useEffect, useState} from "react";
+import {API_URL} from "../consts";
 
 
 
 
 const ReviewList = () => {
 
+    const [reviews, setReviews]  = useState({});
+    const findAllReviews= () => {
+        fetch(`${API_URL}/reviews`
+        ).then(response => response.json()).then(reviews => setReviews(reviews));
+    }
+    console.log(reviews);
 
+    useEffect(findAllReviews, []);
     return (<>
 
             <div className="card mt-3 mb-3 border-dark">
@@ -31,7 +36,9 @@ const ReviewList = () => {
                                     </span><button className="btn"><i className=" fas fa-trash"></i></button>
                                 </div>
                             </div>
+
                         </div>
+
 
                     </ul>
                 </div>
@@ -48,3 +55,10 @@ export default ReviewList;
 
 
 
+// {
+//     movieDetails.Actors.split(',').map(actor =>
+//         <li key={actor}>
+//             {actor}
+//         </li>
+//     )
+// }
