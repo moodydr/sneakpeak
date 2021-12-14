@@ -1,6 +1,9 @@
 const USER_API = 'http://localhost:4000/api';
 
 
+export const fetchAllUsers = () =>
+    fetch(`${USER_API}/users`)
+        .then(response => response.json());
 
 export const fetchUser = () =>
     fetch(`${USER_API}/profile`)
@@ -21,5 +24,5 @@ export const updateUser = (user) =>
         .then(response => response.json());
 
 export default {
-    fetchUser, updateUser,findUserById
+    fetchUser, updateUser,findUserById, fetchAllUsers
 };
