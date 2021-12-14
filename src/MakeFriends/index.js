@@ -2,7 +2,9 @@ import React, {useState} from "react";
 import monster1 from "../assets/monster1.png";
 import monster2 from "../assets/monster2.png";
 import monster3 from "../assets/monster3.png";
+import monster4 from "../assets/monster3.png";
 import './styles.css';
+import {API_URL} from "../consts";
 
 
 
@@ -16,6 +18,15 @@ const MakeFriends = () => {
         makeFriends(!areFriends);
         setButtonText(text);
     };
+
+    const getAllUsers = () => {
+        fetch(`${API_URL}/users`, {
+            method: 'GET',
+        }).then(res => res.json())
+            .then(makeFriends(),[]).catch(e => navigate('/login'));
+    }
+
+
 
 
     return (<>

@@ -1,14 +1,15 @@
 import './profile.css';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router";
 import {API_URL} from "../consts";
 import Navigation from "../Navigation";
 import ReviewList from "../ReviewList";
+import userService from "../services/userService";
 
 
 
 
-const Profile = function (props) {
+const Profile = function () {
         const [user, setUser] = useState({});
         const navigate = useNavigate();
         const getProfile = () => {
@@ -18,14 +19,22 @@ const Profile = function (props) {
 
                 }).then(res => res.json())
                     .then(user => {
-                            setUser(user);
+                            setUser(user,[]);
                     }).catch(e => navigate('/login'));
         }
-        const userAvatar = (user.avatar);
-        console.log(user);
-        console.log(user._id);
-        console.log(user.avatar);
 
+        console.log(user);
+
+
+        const cancelClickListener = () => {
+                setUser({...user});
+        }
+
+        const saveClickHandler = () => {
+                userService.updateUser(user)
+                    .then(() => setUser({...user})).then(console.log(user));
+
+        }
 
         const logout = () => {
                 fetch(`${API_URL}/logout`, {
@@ -33,7 +42,15 @@ const Profile = function (props) {
                         credentials: 'include'
                 }).then(res => navigate('/'));
         }
+
+
         useEffect(getProfile, [navigate]);
+
+        const updateProfile= (field, value) => {
+                setUser({
+                        ...user,
+                        [field]: value})
+        };
 
     // we show the page if the user is logged in and redirect to the login page if not. this component uses conditional rendering and array mapping to generate the cards.
     //if (props.user && props.user._id) {
@@ -74,9 +91,13 @@ const Profile = function (props) {
                                                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                                     <div className="form-group">
                                                                             <label htmlFor="firstName">First Name</label>
-                                                                            <input type="text" className="form-control"
+                                                                            <input type="text"
+                                                                                   className="form-control"
                                                                                    id="firstName"
-                                                                                   placeholder="Enter first name"/>
+                                                                                   defaultValue={user.firstName}
+                                                                                   placeholder="Enter first name"
+                                                                                   onChange={(e) => setUser({...user, firstName: e.target.value})}
+                                                                                   />
                                                                     </div>
                                                             </div>
                                                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -84,7 +105,10 @@ const Profile = function (props) {
                                                                             <label htmlFor="lastName">Last Name</label>
                                                                             <input type="text" className="form-control"
                                                                                    id="lastName"
-                                                                                   placeholder="Enter last name"/>
+                                                                                   placeholder="Enter last name"
+                                                                                   defaultValue={user.lastName}
+                                                                                   onChange={(e) => setUser({...user, lastName: e.target.value})}
+                                                                                   />
                                                                     </div>
                                                             </div>
                                                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -92,6 +116,8 @@ const Profile = function (props) {
                                                                             <label htmlFor="phone">Email</label>
                                                                             <input type="text" className="form-control"
                                                                                    id="email"
+                                                                                   defaultValue={user.email}
+                                                                                   onChange={(e) => setUser({...user, email: e.target.value})}
                                                                                    placeholder="Enter email"/>
                                                                     </div>
                                                             </div>
@@ -100,6 +126,8 @@ const Profile = function (props) {
                                                                             <label htmlFor="website">Website</label>
                                                                             <input type="url" className="form-control"
                                                                                    id="website"
+                                                                                   defaultValue={user.website}
+                                                                                   onChange={(e) => setUser({...user, website: e.target.value})}
                                                                                    placeholder="Website url"/>
                                                                     </div>
                                                             </div>
@@ -110,10 +138,12 @@ const Profile = function (props) {
                                                                     <div className="text-right mt-4 mb-0">
                                                                             <button type="button" id="submit"
                                                                                     name="submit"
+                                                                                    onClick={cancelClickListener}
                                                                                     className="btn btn-primary">Cancel
                                                                             </button>
                                                                             <button type="button" id="submit"
                                                                                     name="submit"
+                                                                                    onClick={saveClickHandler}
                                                                                     className="ms-3 btn btn-primary">Update
                                                                             </button>
                                                                             <button type="button"
