@@ -21,11 +21,6 @@ const Profile = function (props) {
                             setUser(user);
                     }).catch(e => navigate('/login'));
         }
-        const userAvatar = (user.avatar);
-        console.log(user);
-        console.log(user._id);
-        console.log(user.avatar);
-
 
         const logout = () => {
                 fetch(`${API_URL}/logout`, {

@@ -108,7 +108,7 @@ const Register = () => {
                                 </div>
 
                                 <div>
-                                    <span className="mb-0 mt-0">Already have an account? <Link to="/sneakpeak/login"
+                                    <span className="mb-0 mt-0">Already have an account? <Link to="/login"
                                                                                   className="text-white-50 fw-bold">Login</Link></span>
                                 </div>
 

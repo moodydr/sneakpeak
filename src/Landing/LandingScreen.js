@@ -14,9 +14,9 @@ const LandingScreen = () => {
                         <div className="col"></div>
                         <div className="col-7">
 
-                            <h1 className="h1 text-success text-center text-nowrap">Film Forum for Friends</h1>
+                            <h1 className="h1 text-success text-center text-nowrap">SneakPeak</h1>
                             <p className="p1 text-light text-center">
-                                Enter something here
+                                A Film Forum for Friends
                             </p>
 
 
