@@ -52,7 +52,7 @@ const NavigationSidebar = ( {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link  ${active === `watchlists` ? `active` : ``}`} to={`/watchlist/${user.username}`}>Watch List</Link>
+                                <Link className={`nav-link  ${active === `watchlist` ? `active` : ``}`} to={`/watchlist/${user.username}`}>Watch List</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link  ${active === `profile` ? `active` : ``}`} to={`/profile/${user.username}`}>Profile</Link>

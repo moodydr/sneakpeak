@@ -123,20 +123,21 @@ const DetailsScreen = () => {
                 <div className="card mb-3 border-dark">
                     <p className="card-header text-active fs-4">Review</p>
                     <div className="row g-0">
-                        <div className="col-md-3 ps-1 mb-0">
-                            <div className="card-body">
-                                <span className="card-text fs-5">Did you like it?</span>
-                                <br/>
+                        {/*<div className="col-md-3 ps-1 mb-0">*/}
+                        {/*    <div className="card-body">*/}
+                        {/*        <span className="card-text fs-5">Did you like it?</span>*/}
+                        {/*        <br/>*/}
 
-                                <button onClick={(e) => handleThumb(true)}
-                                        className={isLiked ? "mt-1 mb-1 btn btn-success" : "mt-1 mb-1 btn btn-primary"}>
-                                    <i
-                                        className="far fa-thumbs-up fs-1"></i></button>
-                                <br/>
-                            </div>
+                        {/*        <button onClick={(e) => handleThumb(true)}*/}
+                        {/*                className={isLiked ? "mt-1 mb-1 btn btn-success" : "mt-1 mb-1 btn btn-primary"}>*/}
+                        {/*            <i*/}
+                        {/*                className="far fa-thumbs-up fs-1"></i></button>*/}
+                        {/*        <br/>*/}
+                        {/*    </div>*/}
 
-                        </div>
-                        <div className="col-md-9">
+                        {/*</div>*/}
+                        {/*<div className="col-md-9">*/}
+                            <div className="col-md-12">
                             <div className="card-body">
                                 <label htmlFor="userReview" className="card-text fs-5">What's your review?</label>
                                 <button onClick={createReview} className="btn btn-primary ms-3">Save</button>

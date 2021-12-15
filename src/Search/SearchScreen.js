@@ -48,18 +48,6 @@ const SearchScreen = () =>{
 
                 {movies
                     ? movies.map(movie => (
-                        // <li key={movie.imdbID}>
-                        //     <Link to={`/sneakpeak/search/details/${movie.imdbID}`}>
-                        //     <img alt="Poster" src={movie.Poster} height={125}/>
-                        //     {movie.Title}
-                        //     </Link>
-                        //     <div className="card" >
-                        //         <img src={movie.Poster} className="card-img-top" alt="..." />
-                        //         <div className="card-body">
-                        //             <p className="card-text">{movie.Title}</p>
-                        //         </div>
-                        //     </div>
-                        // </li>
 
 
                     <div className="col-md-3 col-4 col-lg-2">

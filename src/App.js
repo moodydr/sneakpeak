@@ -7,7 +7,7 @@ import SearchScreen from "./Search/SearchScreen";
 import './App.css';
 import ProfileScreen from "./Profile";
 import HomeScreen from "./Home";
-import WatchListScreen from "./WatchLists";
+import WatchlistScreen from "./WatchLists";
 import LandingScreen from "./Landing/LandingScreen";
 import LoginScreen from "./Login";
 import DetailsScreen from "./Search/DetailsScreen";
@@ -26,7 +26,7 @@ function App() {
               <Route path="/register/privacy" element={<PrivacyPolicy/>}/>
               <Route exact path="/profile/:id" element={<Profile/>}/>
               <Route exact path="/home" element={<HomeScreen/>}/>
-              <Route exact path="/watchlist/:id" element={<WatchListScreen/>}/>
+              <Route exact path="/watchlist/:id" element={<WatchlistScreen/>}/>
               <Route path="/search" element={<SearchScreen/>}/>
               <Route path="/search/:searchTerm" element={<SearchScreen/>}/>
               <Route path="/search/details/:id" element={<DetailsScreen/>}/>

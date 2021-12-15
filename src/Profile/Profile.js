@@ -8,7 +8,6 @@ import userService from "../services/userService";
 
 
 const Profile = function (props) {
-        const profReviews = true;
         const [user, setUser] = useState({});
         const navigate = useNavigate();
         const getProfile = () => {
@@ -148,7 +147,7 @@ const Profile = function (props) {
                     </div>
                     <div className="row g-0">
                             <div className="">
-                                    <ReviewList/>
+                                    <ReviewList profile={true}/>
                             </div>
 
 
