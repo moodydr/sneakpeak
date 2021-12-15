@@ -1,13 +1,10 @@
 import React, {useState,useEffect} from "react";
-import monster1 from "../assets/monster1.png";
-import monster2 from "../assets/monster2.png";
-import monster3 from "../assets/monster3.png";
-import monster4 from "../assets/monster3.png";
+
 import './styles.css';
 import {API_URL} from "../consts";
 import userService from "../services/userService";
-import {useHistory, useNavigate} from "react-router";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router";
+
 
 
 const MakeFriends = () => {

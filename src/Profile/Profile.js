@@ -10,6 +10,7 @@ import {useParams} from "react-router-dom";
 
 const Profile = function (props) {
         const params = useParams();
+        const [isPrivate, setIsPrivate] = useState(false);
         const otherProfile = params.id;
         const [user, setUser] = useState({});
         const navigate = useNavigate();
@@ -56,9 +57,11 @@ const Profile = function (props) {
 
         useEffect(() => {
                 if (otherProfile.length > 12 ) {
+                        setIsPrivate(true);
                         return getOtherProfile(otherProfile)
                 }
-                getProfile()
+                setIsPrivate(false);
+                return getProfile()
         }, [navigate]);
 
 
@@ -70,7 +73,7 @@ const Profile = function (props) {
             <div className="container">
                     <div className="row gutters"><h1 className="fs-1 mb-1 mt-5"></h1></div>
                     <div className="row gutters mt-2">
-                            <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                            <div className={isPrivate ? "col-12" : "col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12"}>
                                     <div className="card h-100 border-primary">
                                             <div className="card-body mt-2">
                                                     <div className="account-settings">
@@ -91,6 +94,7 @@ const Profile = function (props) {
                                     </div>
                             </div>
                             <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                                    {!isPrivate ?
                                     <div className="card h-100 border-primary">
                                             <div className="card-body">
                                                     <div className="row gutters">
@@ -166,12 +170,12 @@ const Profile = function (props) {
                                                             </div>
                                                     </div>
                                             </div>
-                                    </div>
+                                    </div>  : null}
                             </div>
                     </div>
                     <div className="row g-0">
                             <div className="">
-                                    <ReviewList profile={true}/>
+                                    <ReviewList profile={true} userN={user.username}/>
                             </div>
 
 

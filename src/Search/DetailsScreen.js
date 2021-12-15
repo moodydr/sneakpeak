@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import "./details.css";
-import monster1 from "../../src/assets/monster1.png";
 import {API_URL} from "../consts";
 
 
@@ -98,7 +97,7 @@ const DetailsScreen = () => {
                             </ul>
                             <p>Genre: {movieDetails.Genre}</p>
                             {/*<textarea type="text" placeholder="What's your review?" className="form-control"/>*/}
-                            <button onClick={e => setUpWatchList(e)}className="btn btn-primary fs-5">Add to Watchlist</button>
+                            {loggedIn ? <button onClick={e => setUpWatchList(e)}className="btn btn-primary fs-5">Add to Watchlist</button> : null }
                         </div>
 
                     </div>
