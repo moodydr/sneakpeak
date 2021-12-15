@@ -7,8 +7,7 @@ import ReviewList from "../ReviewList";
 import userService from "../services/userService";
 
 
-const Profile = function (props) {
-        const profReviews = true;
+const Profile = function () {
         const [user, setUser] = useState({});
         const navigate = useNavigate();
         const getProfile = () => {

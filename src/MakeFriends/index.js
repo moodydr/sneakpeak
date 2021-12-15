@@ -6,9 +6,8 @@ import monster4 from "../assets/monster3.png";
 import './styles.css';
 import {API_URL} from "../consts";
 import userService from "../services/userService";
-import {useNavigate} from "react-router";
-
-
+import {useHistory, useNavigate} from "react-router";
+import {Link} from "react-router-dom";
 
 
 const MakeFriends = () => {
@@ -28,8 +27,6 @@ const MakeFriends = () => {
 
     useEffect(getAllUsers,[]);
 
-
-
     const navigate = useNavigate();
     const [user, setUser] = useState({});
     const getProfile = () => {
@@ -44,37 +41,18 @@ const MakeFriends = () => {
             // .catch(e => navigate('/login'));
     }
 
-
-    const [newFriend, setNewFriend] = useState([]);
-    // const createFriend = () => {
-    //     fetch(`${API_URL}/following`, {
-    //         method: `POST`,
-    //         body: JSON.stringify(newFriend),
-    //         credentials: 'include',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         }
-    //     });
-        // console.log(friends);
-
-    // const findFollowingById = (id) =>
-    //     fetch(`${API_URL}/${id}`)
-    //         .then(response => response.json());
-
-    const updateProfile = () => {fetch(`/api/users/${user.id}`)
-        .then(user => user.json)
-        .then(user=>setUser(user));
+    useEffect(getProfile,[user])
+    const [tempProf, setTempProf] = useState({})
+    const setUpSwitch= (prof) => {
+        setTempProf(prof);
+        getOtherProfile();
     }
 
-
-    useEffect(getProfile, [navigate]);
-
-    // useEffect(createFriend,[]);
-
-
-
-
-
+    const getOtherProfile = () => {
+        fetch(`${API_URL}/users/${tempProf._id}`)
+        .then(user =>user.json()).then(res => console.log(res))
+        .then((status)=> navigate(`/profile/${tempProf._id}`));
+    }
 
 
 
@@ -84,9 +62,9 @@ const MakeFriends = () => {
                 <p className="text fs-5 mb-0 mt-3">Watch with Friends</p>
             </div>
 
-            {friends.slice(0, 8).map(f => <>
-                <div key={f._id} className="card mt-3 mb-3 border-dark">
-                    <li className="list-group-item">
+            {friends.map(f => <>
+                <div onClick={(e) => setUpSwitch(f)} key={f._id} className="card mt-3 mb-3 border-dark">
+                    <li className="list-group-item" >
                         <div className="row">
                             <div className="col-lg-2 d-none d-lg-block">
                                 <img className="wd-small-image" alt="" src={f.avatar}/>
@@ -98,10 +76,10 @@ const MakeFriends = () => {
                             </div>
                             <div className="col-5 col-lg-4 pe-1 ps-0">
                                 {/*areFriends ? "btn btn-light mt-1" :*/}
-                                <button className={"btn btn-primary mt-1"}
-                                        >Follow</button>
+                                <button className={"btn btn-primary mt-1"} onClick={(e)=> setUpSwitch(f)}>Follow</button>
                             </div>
                         </div>
+
                     </li>
                 </div></>)
             }

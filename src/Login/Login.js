@@ -19,6 +19,8 @@ const Login = () => {
             navigate(`/profile/${user.username}`)
         });
     }
+
+
     return (<>
             <Navigation active={'home'}/>
             <div className="container py-5 h-100">

@@ -11,7 +11,7 @@ export const fetchUser = () =>
 
 
 export const findUserById = (id) =>
-    fetch(`${USER_API}/users/${id.id}`)
+    fetch(`${USER_API}/users/${id.username}`)
         .then(response => response.json());
 
 
