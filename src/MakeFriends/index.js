@@ -40,7 +40,8 @@ const MakeFriends = () => {
         }).then(res => res.json())
             .then(user => {
                 setUser(user,[]);
-            }).catch(e => navigate('/login'));
+            })
+            // .catch(e => navigate('/login'));
     }
 
 
@@ -93,7 +94,7 @@ const MakeFriends = () => {
                             <div className="col-5 col-lg-4 pe-1 ps-0">
                                 {/*areFriends ? "btn btn-light mt-1" :*/}
                                 <button className={"btn btn-primary mt-1"}
-                                        onClick={} >Follow</button>
+                                        >Follow</button>
                             </div>
                         </div>
                     </li>

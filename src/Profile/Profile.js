@@ -7,8 +7,6 @@ import ReviewList from "../ReviewList";
 import userService from "../services/userService";
 
 
-
-
 const Profile = function (props) {
         const profReviews = true;
         const [user, setUser] = useState({});
@@ -24,17 +22,14 @@ const Profile = function (props) {
                     }).catch(e => navigate('/login'));
         }
 
-        console.log(user);
-
-
         const cancelClickListener = () => {
                 setUser({...user});
         }
 
-        const saveClickHandler = () => {
-                userService.updateUser(user)
-                    .then(() => setUser({...user})).then(console.log(user));
 
+        const saveClickHandler = (user) => {
+                const newUser = {firstName: user.firstName, lastName: user.lastName, avatar: user.avatar, email: user.email, website: user.website};
+                userService.updateUser(user).then(user => setUser(newUser));
         }
 
         const logout = () => {
@@ -136,7 +131,7 @@ const Profile = function (props) {
                                                                             </button>
                                                                             <button type="button" id="submit"
                                                                                     name="submit"
-                                                                                    onClick={saveClickHandler}
+                                                                                    onClick={() => saveClickHandler(user)}
                                                                                     className="ms-3 btn btn-primary">Update
                                                                             </button>
                                                                             <button type="button"

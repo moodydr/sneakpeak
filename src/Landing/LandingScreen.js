@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import sneakpeak from "../assets/sneakpeak.png";
 import './landing.css';
 
-
 const LandingScreen = () => {
     return (<>
             <div className="landingContainer">
@@ -14,7 +13,7 @@ const LandingScreen = () => {
                         <div className="col"></div>
                         <div className="col-7">
 
-                            <h1 className="h1 text-success text-center text-nowrap">SneakPeak</h1>
+                            <h1 className="h1 text-success text-center text-nowrap mt-3">SneakPeak</h1>
                             <p className="p1 text-light text-center">
                                 A Film Forum for Friends
                             </p>

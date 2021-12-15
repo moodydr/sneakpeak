@@ -7,6 +7,7 @@ import {API_URL} from "../consts";
 
 const DetailsScreen = () => {
     const params = useParams();
+    let loggedIn = true;
     const navigate = useNavigate();
     const [movieDetails, setMovieDetails] = useState({Actors: '', Ratings: []});
     const [review, setReview] = useState({});
@@ -15,6 +16,10 @@ const DetailsScreen = () => {
             .then(res => res.json())
             .then(movie => setMovieDetails(movie));
     useEffect(findMovieDetailsByImdbID, []);
+
+    const addToWatchList = () => {
+
+    }
 
     const createReview = () => {
         fetch(`${API_URL}/reviews`, {
@@ -30,6 +35,9 @@ const DetailsScreen = () => {
     };
 
     const [user, setUser] = useState({});
+    if (!user.username){
+        loggedIn = false;
+    }
     const getProfile = () => {
         fetch(`${API_URL}/profile`, {
             method: 'POST',
@@ -97,68 +105,42 @@ const DetailsScreen = () => {
                     </div>
                 </div>
             </div>
-            <div className="card mb-3 border-dark">
-                <p className="card-header text-active fs-4">Review</p>
-                <div className="row g-0">
-                    <div className="col-md-3 ps-1 mb-0">
-                        <div className="card-body">
-                            <span className="card-text fs-5">Did you like it?</span>
-                            <br/>
+            {loggedIn ?
+                <div className="card mb-3 border-dark">
+                    <p className="card-header text-active fs-4">Review</p>
+                    <div className="row g-0">
+                        <div className="col-md-3 ps-1 mb-0">
+                            <div className="card-body">
+                                <span className="card-text fs-5">Did you like it?</span>
+                                <br/>
 
-                            <button onClick={(e) => handleThumb(true)}
-                                    className={isLiked ? "mt-1 mb-1 btn btn-success" : "mt-1 mb-1 btn btn-primary"}><i
-                                className="far fa-thumbs-up fs-1"></i></button>
-                            <br/>
-                        </div>
-
-                    </div>
-                    <div className="col-md-9">
-                        <div className="card-body">
-                            <label for="userReview" className="card-text fs-5">What's your review?</label>
-                            <button onClick={createReview} className="btn btn-primary ms-3">Save</button>
-                            <textarea onChange={(e) => setReview({...review, username: user.username, poster: movieDetails.Poster, title: movieDetails.Title, imdbID: movieDetails.imdbID, review: e.target.value})} rows="6" id="userReview" type="text" className="mt-2 form-control"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="card mb-3 border-dark mb-5">
-                <p className="card-header text-active fs-4">SneakPeak Users</p>
-                <div className="row g-0">
-                    <ul className="list-group">
-                        <div className="list-group-item">
-                            <div className="row d-flex">
-                                <div className="col-1 d-none d-lg-block">
-                                    <div className="ps-1 mt-4 pb-2">
-                                        <img src={monster1}
-                                             className="img-round" title="" alt=""/>
-
-                                    </div>
-
-                                </div>
-                                <div className="col-10 card-body">
-                                    <h5 className="text-warning active fs-5"> Movie Title Here</h5>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
-                                    <p className="text-white mt-1 mb-0">
-                                        - John Smith
-                                    </p>
-
-                                </div>
-                                <div className="col-1 card-body">
-                                    <i className="fas fa-trash"></i>
-
-                                </div>
-
+                                <button onClick={(e) => handleThumb(true)}
+                                        className={isLiked ? "mt-1 mb-1 btn btn-success" : "mt-1 mb-1 btn btn-primary"}>
+                                    <i
+                                        className="far fa-thumbs-up fs-1"></i></button>
+                                <br/>
                             </div>
 
                         </div>
-
-
-                    </ul>
-
-
+                        <div className="col-md-9">
+                            <div className="card-body">
+                                <label htmlFor="userReview" className="card-text fs-5">What's your review?</label>
+                                <button onClick={createReview} className="btn btn-primary ms-3">Save</button>
+                                <textarea onChange={(e) => setReview({
+                                    ...review,
+                                    username: user.username,
+                                    poster: movieDetails.Poster,
+                                    title: movieDetails.Title,
+                                    imdbID: movieDetails.imdbID,
+                                    review: e.target.value
+                                })} rows="6" id="userReview" type="text" className="mt-2 form-control"/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                : null}
 
-            </div>
+
             {/*{JSON.stringify(movieDetails)}*/}
 
         </div>

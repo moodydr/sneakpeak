@@ -16,7 +16,6 @@ const Login = () => {
                 'content-type': 'application/json'
             }
         }).then(status => {
-
             navigate(`/profile/${user.username}`)
         });
     }

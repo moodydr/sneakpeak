@@ -5,6 +5,7 @@ import './styles.css';
 
 const ChristmasMovies = () =>{
     const params = useParams();
+    const loggedIn = true;
     const navigate = useNavigate();
     const movieTitle = params.searchTerm || '';
     const [searchTerm, setSearchTerm] = useState(movieTitle)

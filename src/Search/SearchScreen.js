@@ -33,7 +33,7 @@ const SearchScreen = () =>{
             <Navigation/>
             <div className="container">
             <h1>Search Screen</h1>
-            <div class="input-group">
+            <div className="input-group">
                 <input type="text"  className="" placeholder="Find a movie..."
                 //        onKeyPress={(e) =>
                 // handleKeyPress(e.key)} onChange={(e) =>

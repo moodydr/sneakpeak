@@ -21,11 +21,13 @@ const NavigationSidebar = ( {
             // .catch(e => navigate('/login'));
     }
     const handleKeyPress = (e) => {
+        console.log(e.target.value);
         if (e.key === 'Enter') {
             navigate(`/search/${e.target.value}`);
         }
     };
     const configSearchButton = (e) => {
+        console.log(e.target.value);
         navigate(`/search/${e.target.previousElementSibling.value}`);
     }
     useEffect(getProfile, [navigate]);
@@ -50,7 +52,7 @@ const NavigationSidebar = ( {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link  ${active === `watchlists` ? `active` : ``}`} to="/watchlist">Watch List</Link>
+                                <Link className={`nav-link  ${active === `watchlists` ? `active` : ``}`} to={`/watchlist/${user.username}`}>Watch List</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link  ${active === `profile` ? `active` : ``}`} to={`/profile/${user.username}`}>Profile</Link>

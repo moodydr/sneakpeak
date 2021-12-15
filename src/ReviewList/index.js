@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from "react";
 import {API_URL} from "../consts";
+import {useNavigate} from "react-router";
 
 
 const ReviewList = ({profile}) => {
-    const [reviews, setReviews]  = useState( []);
-    const [user, setUser] = useState({});
-    const findAllReviews= () => {
+    const [reviews, setReviews] = useState([]);
+    const [user, setUser] = useState();
+    const navigate = useNavigate();
+    const findAllReviews = () => {
         fetch(`${API_URL}/reviews`
         ).then(response => response.json()).then(reviews => setReviews(reviews));
     }
+
     const getProfile = () => {
         fetch(`${API_URL}/profile`, {
             method: 'POST',
@@ -18,12 +21,18 @@ const ReviewList = ({profile}) => {
             .then(user => {
                 setUser(user);
                 setAdmin(user.admin);
-            });
+            }).catch(e => console.log(e));
     }
 
+    const deleteReview = (review) =>
+        fetch(`${API_URL}/reviews/${review._id}`, {
+            method: 'DELETE',
+        }).then(() => setReviews(
+            reviews.filter(r => r !== review)));
 
 
     const [admin, setAdmin] = useState(false);
+
 
     useEffect(findAllReviews, [reviews]);
     useEffect(getProfile);
@@ -58,7 +67,7 @@ const ReviewList = ({profile}) => {
                                         <div className="col-2 d-none d-lg-block">
                                             <div className="ps-1 mt-4 pb-2">
                                                 <img src={review.poster}
-                                                     className="card-img" title="" alt="" />
+                                                     className="card-img" title="" alt=""/>
                                             </div>
                                         </div>
                                         <div className="col-10 card-body">
@@ -68,14 +77,14 @@ const ReviewList = ({profile}) => {
                                             <span className="text-white mt-1 mb-0 me-2">
                                         - {review.username}
                                     </span>
-                                            { admin ? <button className="btn"><i className=" fas fa-trash"></i></button> : null }
+                                            {admin ? <button
+                                                onClick={() => deleteReview(review)}
+                                                className="btn"><i className=" fas fa-trash"></i></button> : null}
                                         </div>
                                     </div>
                                 </div>
                             )
                         }
-
-
 
 
                     </ul>
