@@ -3,12 +3,18 @@ import {API_URL} from "../consts";
 import {useNavigate} from "react-router";
 
 
-const ReviewList = ({profile}) => {
+const ReviewList = () => {
+    const onProfile = false;
     const [reviews, setReviews] = useState([]);
-    const [user, setUser] = useState();
+    const [user, setUser] = useState([]);
     const navigate = useNavigate();
     const findAllReviews = () => {
-        fetch(`${API_URL}/reviews`
+            fetch(`${API_URL}/reviews`
+            ).then(response => response.json()).then(reviews => setReviews(reviews));
+    }
+
+    const findUserReviews = () => {
+        fetch(`${API_URL}/reviews/username/${user.username}`
         ).then(response => response.json()).then(reviews => setReviews(reviews));
     }
 
@@ -32,9 +38,7 @@ const ReviewList = ({profile}) => {
 
 
     const [admin, setAdmin] = useState(false);
-
-
-    useEffect(findAllReviews, [reviews]);
+    useEffect(findUserReviews, [reviews]);
     useEffect(getProfile);
 
     return (<>

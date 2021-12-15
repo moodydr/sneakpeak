@@ -11,15 +11,29 @@ const DetailsScreen = () => {
     const navigate = useNavigate();
     const [movieDetails, setMovieDetails] = useState({Actors: '', Ratings: []});
     const [review, setReview] = useState({});
+    const [watchMovie, setWatchMovie] = useState({});
     const findMovieDetailsByImdbID = () =>
         fetch(`http://www.omdbapi.com/?i=${params.id}&apikey=cf2e21f0`)
             .then(res => res.json())
             .then(movie => setMovieDetails(movie));
     useEffect(findMovieDetailsByImdbID, []);
 
-    const addToWatchList = () => {
 
+
+    const setUpWatchList = (e) => {
+        setWatchMovie({username: user.username, watchlist: {imdbID: movieDetails.imdbID, title: movieDetails.Title, poster: movieDetails.Poster}});
+        addToWatchList();
+        console.log(movieDetails);
     }
+
+    const addToWatchList = () =>
+        fetch(`${API_URL}/watchlists/username/${user.username}`, {
+            method: 'PUT',
+            body: JSON.stringify(movieDetails),
+            headers: {'content-type': 'application/json'}
+        })
+            .then(response => response.json());
+
 
     const createReview = () => {
         fetch(`${API_URL}/reviews`, {
@@ -84,7 +98,7 @@ const DetailsScreen = () => {
                             </ul>
                             <p>Genre: {movieDetails.Genre}</p>
                             {/*<textarea type="text" placeholder="What's your review?" className="form-control"/>*/}
-                            <button className="btn btn-primary fs-5">Add to Watchlist</button>
+                            <button onClick={e => setUpWatchList(e)}className="btn btn-primary fs-5">Add to Watchlist</button>
                         </div>
 
                     </div>
