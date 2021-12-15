@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Navigation from "../Navigation";
 import ChristmasMovies from "../ChristmasMovies";
 import ReviewList from "../ReviewList";
@@ -10,7 +10,7 @@ import {useNavigate} from "react-router";
 
 
 const HomeScreen = () => {
-    const loggedIn = true;
+    const [loggedIn, setLoggedIn] = useState(false);
     const [user, setUser] = useState({});
     const navigate = useNavigate();
     const getProfile = () => {
@@ -21,10 +21,13 @@ const HomeScreen = () => {
         }).then(res => res.json())
             .then(user => {
                 setUser(user);
+                setLoggedIn(!loggedIn);
             }).catch(function(error) {
             console.log(error);
         });
     }
+
+    useEffect(getProfile, []);
 
 
     return (<>
@@ -40,7 +43,7 @@ const HomeScreen = () => {
                             <MakeFriends/>
                         </div>
                         <div className="col-7 col-md-8 col-xl-6 mt-2">
-                            <ReviewList/>
+                            <ReviewList profile={false}/>
 
                         </div>
                         <div className="d-none d-md-none d-xl-block col-xl-3 mt-2">

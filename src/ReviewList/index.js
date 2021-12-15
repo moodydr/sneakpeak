@@ -1,23 +1,14 @@
 import React, {useEffect, useState} from "react";
 import {API_URL} from "../consts";
 import {useNavigate} from "react-router";
+import {Link} from "react-router-dom";
 
 
-const ReviewList = () => {
-    const onProfile = false;
-    const [reviews, setReviews] = useState([]);
+const ReviewList = ({profile}) => {
+    const onProfile = profile;
     const [user, setUser] = useState([]);
+    const [admin, setAdmin] = useState(false);
     const navigate = useNavigate();
-    const findAllReviews = () => {
-            fetch(`${API_URL}/reviews`
-            ).then(response => response.json()).then(reviews => setReviews(reviews));
-    }
-
-    const findUserReviews = () => {
-        fetch(`${API_URL}/reviews/username/${user.username}`
-        ).then(response => response.json()).then(reviews => setReviews(reviews));
-    }
-
     const getProfile = () => {
         fetch(`${API_URL}/profile`, {
             method: 'POST',
@@ -29,17 +20,29 @@ const ReviewList = () => {
                 setAdmin(user.admin);
             }).catch(e => console.log(e));
     }
-
+    useEffect(getProfile);
+    const [reviews, setReviews] = useState([]);
+    const findAllReviews = () => {
+        fetch(`${API_URL}/reviews`
+        ).then(response => response.json()).then(reviews => setReviews(reviews));
+    }
+    const findUserReviews = () => {
+        fetch(`${API_URL}/reviews/username/${user.username}`
+        ).then(response => response.json()).then(reviews => setReviews(reviews));
+    }
     const deleteReview = (review) =>
         fetch(`${API_URL}/reviews/${review._id}`, {
             method: 'DELETE',
         }).then(() => setReviews(
             reviews.filter(r => r !== review)));
 
+    useEffect(() => {
+        if (onProfile) {
+            return findUserReviews()
+        }
+        findAllReviews()
+    }, [reviews]);
 
-    const [admin, setAdmin] = useState(false);
-    useEffect(findUserReviews, [reviews]);
-    useEffect(getProfile);
 
     return (<>
 
@@ -70,11 +73,15 @@ const ReviewList = () => {
                                     <div className="row d-flex">
                                         <div className="col-2 d-none d-lg-block">
                                             <div className="ps-1 mt-4 pb-2">
-                                                <img src={review.poster}
-                                                     className="card-img" title="" alt=""/>
+                                                <Link className="no-underline" to={`/search/details/${review.imdbID}`} >
+                                                    <img src={review.poster}
+                                                         className="card-img" title="" alt=""/>
+                                                </Link>
+
                                             </div>
                                         </div>
                                         <div className="col-10 card-body">
+
                                             <h5 className="text-warning active fs-5">{review.title}</h5>
                                             <span>{review.review}</span>
                                             <br/>

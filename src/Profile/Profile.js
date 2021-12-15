@@ -7,7 +7,7 @@ import ReviewList from "../ReviewList";
 import userService from "../services/userService";
 
 
-const Profile = function () {
+const Profile = function (props) {
         const [user, setUser] = useState({});
         const navigate = useNavigate();
         const getProfile = () => {
@@ -26,16 +26,9 @@ const Profile = function () {
         }
 
 
-
-
-        useEffect(getProfile,[user, navigate]);
-
-
-
-        const saveClickHandler = () => {
-                // const newUser = {firstName: user.firstName, lastName: user.lastName, avatar: user.avatar, email: user.email, website: user.website};
-
-                userService.updateUser(user).then(() => setUser({...user}));
+        const saveClickHandler = (user) => {
+                const newUser = {firstName: user.firstName, lastName: user.lastName, avatar: user.avatar, email: user.email, website: user.website};
+                userService.updateUser(user).then(user => setUser(newUser));
         }
 
         const logout = () => {
