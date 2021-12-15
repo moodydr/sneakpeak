@@ -20,7 +20,7 @@ const Register = () => {
             headers: {
                 'content-type': 'application/json'
             }
-        }).then(status => navigate(`/profile/${user.username}`));
+        }).then(status => navigate(`/profile`));
     };
     return (<>
             <Navigation active={'home'}/>

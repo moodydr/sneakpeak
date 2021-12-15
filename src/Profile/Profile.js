@@ -21,10 +21,12 @@ const Profile = function (props) {
                     }).catch(e => navigate('/login'));
         }
 
+
         const cancelClickListener = () => {
+
+                console.log("test");
                 setUser({...user});
         }
-
 
         const saveClickHandler = (user) => {
                 const newUser = {firstName: user.firstName, lastName: user.lastName, avatar: user.avatar, email: user.email, website: user.website};
@@ -38,6 +40,9 @@ const Profile = function (props) {
                 }).then(res => navigate('/'));
         }
         useEffect(getProfile, [navigate]);
+
+
+
 
     // we show the page if the user is logged in and redirect to the login page if not. this component uses conditional rendering and array mapping to generate the cards.
     //if (props.user && props.user._id) {
