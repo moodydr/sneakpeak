@@ -11,14 +11,14 @@ export const fetchUser = () =>
 
 
 export const findUserById = (id) =>
-    fetch(`${USER_API}/users/${id}`)
+    fetch(`${USER_API}/users/${id.id}`)
         .then(response => response.json());
 
 
 export const updateUser = (user) =>
     fetch(`${USER_API}/users/${user._id}`, {
         method: 'PUT',
-        body: JSON.stringify(user),
+        body: JSON.stringify({firstName: user.firstName, lastName: user.lastName, email:user.email, website:user.website}),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json());

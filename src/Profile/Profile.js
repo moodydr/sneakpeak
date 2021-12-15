@@ -27,9 +27,16 @@ const Profile = function (props) {
         }
 
 
-        const saveClickHandler = (user) => {
-                const newUser = {firstName: user.firstName, lastName: user.lastName, avatar: user.avatar, email: user.email, website: user.website};
-                userService.updateUser(user).then(user => setUser(newUser));
+
+
+        useEffect(getProfile,[user, navigate]);
+
+
+
+        const saveClickHandler = () => {
+                // const newUser = {firstName: user.firstName, lastName: user.lastName, avatar: user.avatar, email: user.email, website: user.website};
+
+                userService.updateUser(user).then(() => setUser({...user}));
         }
 
         const logout = () => {

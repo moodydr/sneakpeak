@@ -46,27 +46,32 @@ const MakeFriends = () => {
 
 
     const [newFriend, setNewFriend] = useState([]);
-    const createFriend = () => {
-        fetch(`${API_URL}/following`, {
-            method: `POST`,
-            body: JSON.stringify(newFriend),
-            credentials: 'include',
-            headers: {
-                'content-type': 'application/json'
-            }
-        });
+    // const createFriend = () => {
+    //     fetch(`${API_URL}/following`, {
+    //         method: `POST`,
+    //         body: JSON.stringify(newFriend),
+    //         credentials: 'include',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         }
+    //     });
         // console.log(friends);
-    };
 
-    const findFollowingById = (id) =>
-        fetch(`${API_URL}/${id}`)
-            .then(response => response.json());
+    // const findFollowingById = (id) =>
+    //     fetch(`${API_URL}/${id}`)
+    //         .then(response => response.json());
 
+    const updateProfile = () => {fetch(`/api/users/${user.id}`)
+        .then(user => user.json)
+        .then(user=>setUser(user));
+    }
 
 
     useEffect(getProfile, [navigate]);
 
     // useEffect(createFriend,[]);
+
+
 
 
 
