@@ -1,14 +1,10 @@
 import React, {useState,useEffect} from "react";
-import monster1 from "../assets/monster1.png";
-import monster2 from "../assets/monster2.png";
-import monster3 from "../assets/monster3.png";
-import monster4 from "../assets/monster3.png";
+
 import './styles.css';
 import {API_URL} from "../consts";
 import userService from "../services/userService";
 import {Router, useHistory, useNavigate} from "react-router";
 import {Link} from "react-router-dom";
-import ProfileScreen from "../Profile";
 import Profile from "../Profile/Profile";
 
 
@@ -44,8 +40,6 @@ const MakeFriends = () => {
     }
 
     useEffect(getProfile,[user])
-
-
     const [tempProf, setTempProf] = useState({})
     const setUpSwitch= (prof) => {
         setTempProf(prof);
@@ -94,18 +88,18 @@ const MakeFriends = () => {
 
 
     return (<>
-
-
-            <div className="list-group-item border-dark">
-                <p className="text fs-5 mb-0 mt-3">Watch with Friends</p>
+        <div className="card mt-3 border-dark">
+            <div className="card-header">
+                <p className="text fs-4 mb-0">Watch with Friends</p>
             </div>
+        </div>
+
 
             {friends.map(f => <>
                 <div className="card mt-3 mb-3 border-dark">
                     <li key={f._id} className="list-group-item" >
 
                         <div className="row">
-
                             <div className="col-lg-2 d-none d-lg-block">
                                 <img className="wd-small-image" alt="" src={f.avatar}/>
                             </div>

@@ -2,7 +2,6 @@ import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {API_URL} from "../consts";
 import Navigation from "../Navigation";
-import PrivacyPolicy from "../PrivacyPolicy";
 import monster3 from "../assets/monster3.png";
 import monster1 from "../assets/monster1.png";
 import monster2 from "../assets/monster2.png";

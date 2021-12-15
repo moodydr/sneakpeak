@@ -5,9 +5,13 @@ import {API_URL} from "../consts";
 import Navigation from "../Navigation";
 import ReviewList from "../ReviewList";
 import userService from "../services/userService";
+import {useParams} from "react-router-dom";
 
 
 const Profile = function (props) {
+        const params = useParams();
+        const [isPrivate, setIsPrivate] = useState(false);
+        const otherProfile = params.id;
         const [user, setUser] = useState({});
         const navigate = useNavigate();
         const getProfile = () => {
@@ -18,15 +22,25 @@ const Profile = function (props) {
                 }).then(res => res.json())
                     .then(user => {
                             setUser(user);
+                            console.log(user);
                     }).catch(e => navigate('/login'));
         }
 
+        const getOtherProfile = (prof) => {
+                fetch(`${API_URL}/users/${prof}`, {
+                        method: 'GET',
+
+                }).then(res => res.json())
+                    .then(user => {
+                            setUser(user);
+                            console.log(user);
+                    })
+        }
 
         const cancelClickListener = () => {
-
-                console.log("test");
                 setUser({...user});
         }
+
 
         const saveClickHandler = (user) => {
                 const newUser = {firstName: user.firstName, lastName: user.lastName, avatar: user.avatar, email: user.email, website: user.website};
@@ -39,19 +53,27 @@ const Profile = function (props) {
                         credentials: 'include'
                 }).then(res => navigate('/'));
         }
-        useEffect(getProfile, [navigate]);
+        // useEffect(getProfile, [navigate]);
+
+        useEffect(() => {
+                if (otherProfile.length > 12 ) {
+                        setIsPrivate(true);
+                        return getOtherProfile(otherProfile)
+                }
+                setIsPrivate(false);
+                return getProfile()
+        }, [navigate]);
 
 
 
-
-    // we show the page if the user is logged in and redirect to the login page if not. this component uses conditional rendering and array mapping to generate the cards.
+        // we show the page if the user is logged in and redirect to the login page if not. this component uses conditional rendering and array mapping to generate the cards.
     //if (props.user && props.user._id) {
         return (<>
                     <Navigation active={"explore"} className="mt-0"/>
             <div className="container">
                     <div className="row gutters"><h1 className="fs-1 mb-1 mt-5"></h1></div>
                     <div className="row gutters mt-2">
-                            <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                            <div className={isPrivate ? "col-12" : "col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12"}>
                                     <div className="card h-100 border-primary">
                                             <div className="card-body mt-2">
                                                     <div className="account-settings">
@@ -72,6 +94,7 @@ const Profile = function (props) {
                                     </div>
                             </div>
                             <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                                    {!isPrivate ?
                                     <div className="card h-100 border-primary">
                                             <div className="card-body">
                                                     <div className="row gutters">
@@ -147,12 +170,12 @@ const Profile = function (props) {
                                                             </div>
                                                     </div>
                                             </div>
-                                    </div>
+                                    </div>  : null}
                             </div>
                     </div>
                     <div className="row g-0">
                             <div className="">
-                                    <ReviewList/>
+                                    <ReviewList profile={true} userN={user.username}/>
                             </div>
 
 

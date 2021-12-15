@@ -4,7 +4,7 @@ import {useNavigate} from "react-router";
 import {Link} from "react-router-dom";
 
 
-const ReviewList = ({profile}) => {
+const ReviewList = ({profile, userN}) => {
     const onProfile = profile;
     const [user, setUser] = useState([]);
     const [admin, setAdmin] = useState(false);
@@ -27,7 +27,7 @@ const ReviewList = ({profile}) => {
         ).then(response => response.json()).then(reviews => setReviews(reviews));
     }
     const findUserReviews = () => {
-        fetch(`${API_URL}/reviews/username/${user.username}`
+        fetch(`${API_URL}/reviews/username/${userN}`
         ).then(response => response.json()).then(reviews => setReviews(reviews));
     }
     const deleteReview = (review) =>
