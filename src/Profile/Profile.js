@@ -5,9 +5,12 @@ import {API_URL} from "../consts";
 import Navigation from "../Navigation";
 import ReviewList from "../ReviewList";
 import userService from "../services/userService";
+import {useParams} from "react-router-dom";
 
 
 const Profile = function (props) {
+        const params = useParams();
+        const otherProfile = params.id;
         const [user, setUser] = useState({});
         const navigate = useNavigate();
         const getProfile = () => {
@@ -18,7 +21,19 @@ const Profile = function (props) {
                 }).then(res => res.json())
                     .then(user => {
                             setUser(user);
+                            console.log(user);
                     }).catch(e => navigate('/login'));
+        }
+
+        const getOtherProfile = (prof) => {
+                fetch(`${API_URL}/users/${prof}`, {
+                        method: 'GET',
+
+                }).then(res => res.json())
+                    .then(user => {
+                            setUser(user);
+                            console.log(user);
+                    })
         }
 
         const cancelClickListener = () => {
@@ -37,9 +52,18 @@ const Profile = function (props) {
                         credentials: 'include'
                 }).then(res => navigate('/'));
         }
-        useEffect(getProfile, [navigate]);
+        // useEffect(getProfile, [navigate]);
 
-    // we show the page if the user is logged in and redirect to the login page if not. this component uses conditional rendering and array mapping to generate the cards.
+        useEffect(() => {
+                if (otherProfile.length > 12 ) {
+                        return getOtherProfile(otherProfile)
+                }
+                getProfile()
+        }, [navigate]);
+
+
+
+        // we show the page if the user is logged in and redirect to the login page if not. this component uses conditional rendering and array mapping to generate the cards.
     //if (props.user && props.user._id) {
         return (<>
                     <Navigation active={"explore"} className="mt-0"/>
@@ -147,7 +171,7 @@ const Profile = function (props) {
                     </div>
                     <div className="row g-0">
                             <div className="">
-                                    <ReviewList/>
+                                    <ReviewList profile={true}/>
                             </div>
 
 

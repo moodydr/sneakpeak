@@ -45,22 +45,25 @@ const MakeFriends = () => {
     const [tempProf, setTempProf] = useState({})
     const setUpSwitch= (prof) => {
         setTempProf(prof);
-        getOtherProfile();
+        getOtherProfile(prof);
     }
 
-    const getOtherProfile = () => {
-        fetch(`${API_URL}/users/${tempProf._id}`)
+    const getOtherProfile = (prof) => {
+        console.log(prof._id);
+        fetch(`${API_URL}/users/${prof._id}`)
         .then(user =>user.json()).then(res => console.log(res))
-        .then((status)=> navigate(`/profile/${tempProf._id}`));
+        .then((status)=> navigate(`/profile/${prof._id}`));
     }
 
 
 
     return (<>
-
-            <div className="list-group-item border-dark">
-                <p className="text fs-5 mb-0 mt-3">Watch with Friends</p>
+        <div className="card mt-3 border-dark">
+            <div className="card-header">
+                <p className="text fs-4 mb-0">Watch with Friends</p>
             </div>
+        </div>
+
 
             {friends.map(f => <>
                 <div onClick={(e) => setUpSwitch(f)} key={f._id} className="card mt-3 mb-3 border-dark">
