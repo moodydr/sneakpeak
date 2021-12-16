@@ -37,7 +37,7 @@ const HomeScreen = () => {
                 </div>
             </div>
             {loggedIn ?
-                <div className="container-fluid mt-5">
+                <div className="container-fluid mt-4">
                     <div className="row mt-4 g-2">
                         <div className="col-5 col-md-4 col-xl-3 mt-2">
                             <MakeFriends/>

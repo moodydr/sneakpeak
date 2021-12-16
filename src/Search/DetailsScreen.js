@@ -98,7 +98,7 @@ const DetailsScreen = () => {
                             </ul>
                             <p>Genre: {movieDetails.Genre}</p>
                             {/*<textarea type="text" placeholder="What's your review?" className="form-control"/>*/}
-                            <button onClick={e => setUpWatchList(e)}className="btn btn-primary fs-5">Add to Watchlist</button>
+                            {loggedIn ? <button onClick={e => setUpWatchList(e)}className="btn btn-primary fs-5">Add to Watchlist</button> : null }
                         </div>
 
                     </div>
