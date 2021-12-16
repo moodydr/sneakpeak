@@ -112,8 +112,8 @@ const MakeFriends = () => {
 
                             <div className="col-5 col-lg-4 pe-1 ps-0">
                                 {/*areFriends ? "btn btn-light mt-1" :*/}
-                                <button className={areFriends ? 'btn btn-light mt-1' : 'btn btn-primary mt-1'} onClick={() => addFollower(f)}>
-                                    {areFriends ? 'Following' : 'Follow'}
+                                <button className={areFriends._id ? 'btn btn-light mt-1' : 'btn btn-primary mt-1'} onClick={() => addFollower(f)}>
+                                    {areFriends._id ? 'Following' : 'Follow'}
                                 </button>
                             </div>
                         </div>

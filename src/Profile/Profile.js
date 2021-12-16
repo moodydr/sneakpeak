@@ -55,8 +55,12 @@ const Profile = function (props) {
         }
         // useEffect(getProfile, [navigate]);
 
+        const path = window.location.href;
+        const lastSegment = path.split("/").pop();
+        console.log(lastSegment);
+
         useEffect(() => {
-                if (otherProfile.length > 12 ) {
+                if (otherProfile >12 ) {
                         setIsPrivate(true);
                         return getOtherProfile(otherProfile)
                 }
