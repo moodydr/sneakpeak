@@ -4,7 +4,7 @@ SneakPeak is a full-stack web application that allows users to create a profile,
 
 Technologies used: React, NodeJS, Redux, MongoDB, Bootstrap, OMDB API
 
-URL: https://sneakpeak.herokuapp.com
+URL (App may need ~30 seconds to wake up): https://sneakpeak.herokuapp.com
 
 Time spent: 1 month
 
